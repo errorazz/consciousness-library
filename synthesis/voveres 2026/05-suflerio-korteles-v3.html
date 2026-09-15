@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voverės 2026 — suflerio kortelės v3</title>
+
+<!--
+═══════════════════════════════════════════════════════════════════════
+  VOVERĖS 2026 · SUFLERIO KORTELĖS · v3 „TEORIJA PIRMA"
+  Iš Aukos į Kūrėją · 2 dalys · 3 val. 22 min
+
+  KAS PASIKEITĖ nuo v2
+  • Tvarka pasukta: pirma visa sistema, tik tada pavyzdžiai.
+  • Kortelės sunumeruotos D1-x / D2-x pagal pirminio šaltinio skyrius (§1–§9).
+    Šaltinis: ../consciousness-library-beginning/consciousness-library-beginning_v2.md
+  • GRĄŽINTOS 18 kortelių, kurias v2 buvo išmetęs dėl komandiškumo ašies.
+  • Kortelės su rizika komandoje pažymėtos ir turi „KOMANDOJE" bloką.
+
+  ŽYMOS
+  ⟲ GRĄŽINTA        — buvo v1, v2 išmetė, dabar sugrąžinta
+  ● RIZIKA KOMANDOJE — realiai gali suveikti prieš tave; skaityk bloką
+  ○ PERFRAZUOK        — veikia, bet komandai reikia kitaip suformuluoti
+
+  KAIP NAUDOTIS
+  1. Atidaryk naršyklėje. 2. Pasirink dydį/šriftą.
+  3. Pažymėk, ką spausdinti. 4. Ctrl+P → Margins: None → ☑ Background graphics.
+  Visa išvaizda — :root{ } bloke žemiau. Kortelė = vienas <section>.
+═══════════════════════════════════════════════════════════════════════
+-->
+
+<style>
+/* ╔═══════════════════════════════════════════════════════════════╗
+   ║  1. NUSTATYMAI — keisk tik šitą bloką                        ║
+   ╚═══════════════════════════════════════════════════════════════╝ */
+:root{
+
+  /* --- KORTELĖS DYDIS (atkomentuok norimą) --- */
+  --card-w: 210mm;  --card-h: 148.5mm;   /* A5 gulsčias · 2 lape  */
+/*--card-w: 105mm;  --card-h: 148.5mm;      A6 stačias  · 4 lape  */
+/*--card-w: 210mm;  --card-h: 297mm;        A4 visas    · 1 lape  */
+
+  /* --- ŠRIFTAI --- */
+  --font:      Georgia, "Cambria", "Times New Roman", serif;
+  --font-mono: "Consolas", "Courier New", monospace;
+  --font-ui:   "Segoe UI", system-ui, sans-serif;
+
+  /* --- DYDŽIAI --- */
+  --fs-code:   9pt;
+  --fs-meta:   8pt;
+  --fs-title: 14pt;
+  --fs-teze:  12.5pt;
+  --fs-body: 10pt;
+  --fs-board:  8.5pt;
+  --fs-next:   7.5pt;
+  --lh:       1.34;
+
+  /* --- SPALVOS --- */
+  --ink:      #14120f;
+  --muted:    #6b655c;
+  --line:     #d6d0c4;
+  --paper:    #ffffff;
+  --board-bg: #f4f1ea;
+  --teze-bg:  #fbf8f1;
+
+  --c-d1:  #8c2f2f;   /* 1 dalis     */
+  --c-d2:  #1d5c4a;   /* 2 dalis     */
+  --c-p:   #5c3f8c;   /* pratimai    */
+  --c-ref: #a8620f;   /* refleksija  */
+  --c-cit: #27476f;   /* citatos     */
+  --c-adm: #4a4a4a;   /* organizaciniai */
+  --c-bank:#7a6a52;   /* atsarginis bankas */
+
+  /* --- ŽYMŲ SPALVOS --- */
+  --badge-restored-bg: #1d5c4a;
+  --badge-risk-bg:     #b3261e;
+  --badge-reframe-bg:  #a8620f;
+
+  --pad: 8.5mm;
+  --cut: 1px dashed #cfc8ba;
+}
+
+/* ╔═══════════════════════════════════════════════════════════════╗
+   ║  2. Mechanika                                                 ║
+   ╚═══════════════════════════════════════════════════════════════╝ */
+*{ box-sizing: border-box; }
+html{ background:#e9e5dc; }
+body{ margin:0; padding:0; font-family: var(--font); color: var(--ink);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+#ui{ position: sticky; top:0; z-index:50; background:#1b1917; color:#f2ede3;
+  font-family: var(--font-ui); font-size:13px; padding:10px 14px;
+  display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.25); }
+#ui strong{ font-weight:600; letter-spacing:.02em; }
+#ui .grp{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+#ui .grp > span{ opacity:.6; font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+#ui button{ font:inherit; font-size:12px; cursor:pointer; background:#332f2b;
+  color:#f2ede3; border:1px solid #4a4540; border-radius:4px; padding:4px 9px; }
+#ui button:hover{ background:#443f39; }
+#ui button.on{ background:#f2ede3; color:#1b1917; border-color:#f2ede3; }
+#ui label{ display:flex; gap:5px; align-items:center; cursor:pointer; font-size:12px; }
+#ui .print{ background:#c9a227; color:#1b1917; border-color:#c9a227; font-weight:600; }
+#ui .hint{ opacity:.55; font-size:11px; flex-basis:100%; }
+#ui .flagbtn.restored.on{ background:var(--badge-restored-bg); color:#fff; border-color:var(--badge-restored-bg); }
+#ui .flagbtn.risk.on{ background:var(--badge-risk-bg); color:#fff; border-color:var(--badge-risk-bg); }
+
+#deck{ font-size:0; text-align:center; padding:18px 0 40px; }
+
+.card{ display:inline-block; vertical-align:top; text-align:left;
+  width: var(--card-w); height: var(--card-h); padding: var(--pad);
+  background: var(--paper); border: var(--cut); overflow:hidden;
+  break-inside: avoid; page-break-inside: avoid; position:relative;
+  font-size: var(--fs-body); line-height: var(--lh); margin:0; }
+@media screen{ .card{ margin:0 6px 14px; box-shadow:0 3px 14px rgba(0,0,0,.13); border-radius:2px; } }
+
+.card > header{ display:flex; justify-content:space-between; align-items:baseline;
+  border-bottom:2px solid var(--accent); padding-bottom:3px; margin-bottom:5px; gap:8px; }
+.code{ font-family: var(--font-ui); font-weight:700; font-size: var(--fs-code);
+  letter-spacing:.06em; color:var(--accent); text-transform:uppercase; white-space:nowrap; }
+.meta{ font-family: var(--font-ui); font-size: var(--fs-meta); color: var(--muted); text-align:right; }
+.card h2{ font-size: var(--fs-title); line-height:1.16; margin:0 0 5px; font-weight:600; }
+.teze{ font-size: var(--fs-teze); line-height:1.28; margin:0 0 6px; padding:5px 7px 5px 9px;
+  background: var(--teze-bg); border-left:3px solid var(--accent); font-style:italic; }
+.card ul, .card ol{ margin:0 0 5px; padding-left:14px; }
+.card li{ margin:0 0 2px; }
+.card p{ margin:0 0 5px; }
+
+/* žymos */
+.badges{ display:flex; gap:4px; flex-wrap:wrap; margin:0 0 5px; }
+.badge{ font-family:var(--font-ui); font-size:7pt; font-weight:700; letter-spacing:.07em;
+  text-transform:uppercase; color:#fff; padding:2px 6px; border-radius:2px; white-space:nowrap; }
+.badge.restored{ background:var(--badge-restored-bg); }
+.badge.risk{ background:var(--badge-risk-bg); }
+.badge.reframe{ background:var(--badge-reframe-bg); }
+
+/* komandos pastaba */
+.team{ border-left:3px solid var(--badge-risk-bg); background:#fdf4f3;
+  padding:4px 7px; margin:0 0 5px; font-size:calc(var(--fs-body) - .8pt); line-height:1.3; }
+.team.mid{ border-left-color:var(--badge-reframe-bg); background:#fdf8f0; }
+.team b.lbl{ font-family:var(--font-ui); font-size:7pt; letter-spacing:.08em;
+  text-transform:uppercase; display:block; margin-bottom:1px; }
+
+.warn{ border-left:3px solid #b3261e; background:#fdf4f3; padding:4px 7px; margin:0 0 5px;
+  font-size:calc(var(--fs-body) - .8pt); }
+.tick{ list-style:none; padding-left:0; }
+.tick li{ padding-left:14px; position:relative; }
+.tick li::before{ content:"▢"; position:absolute; left:0; color:var(--muted); }
+
+.board{ background: var(--board-bg); border:1px solid var(--line); padding:4px 6px; margin:0 0 6px; }
+.board-label{ display:block; font-family:var(--font-ui); font-size:7pt; letter-spacing:.12em;
+  color:var(--muted); text-transform:uppercase; margin-bottom:2px; }
+.board pre{ font-family: var(--font-mono); font-size: var(--fs-board); line-height:1.22;
+  margin:0; white-space:pre-wrap; }
+
+.quote{ font-size: calc(var(--fs-teze) + .5pt); line-height:1.3; margin:0 0 6px;
+  padding-left:11px; border-left:3px solid var(--accent); }
+.src{ font-family:var(--font-ui); font-size:var(--fs-meta); color:var(--muted); }
+
+.next{ position:absolute; left:var(--pad); right:var(--pad); bottom:calc(var(--pad) - 3.5mm);
+  font-family:var(--font-ui); font-size:var(--fs-next); color:var(--muted);
+  border-top:1px solid var(--line); padding-top:3px; margin:0;
+  display:flex; justify-content:space-between; gap:8px; }
+
+.d1  { --accent: var(--c-d1);  }
+.d2  { --accent: var(--c-d2);  }
+.p   { --accent: var(--c-p);   }
+.ref { --accent: var(--c-ref); }
+.cit { --accent: var(--c-cit); }
+.adm { --accent: var(--c-adm); }
+.bank{ --accent: var(--c-bank); }
+
+body.hide-theory .card[data-sec="theory"],
+body.hide-ex     .card[data-sec="ex"],
+body.hide-ref    .card[data-sec="ref"],
+body.hide-cit    .card[data-sec="cit"],
+body.hide-adm    .card[data-sec="adm"],
+body.hide-bank   .card[data-sec="bank"]{ display:none; }
+
+body.only-restored .card:not([data-flag~="restored"]){ display:none; }
+body.only-risk     .card:not([data-flag~="risk"]){ display:none; }
+
+@page{ size: A4 portrait; margin: 0; }
+@media print{
+  html, body{ background:#fff; }
+  #ui, #toc{ display:none !important; }
+  #deck{ padding:0; }
+  .card{ margin:0; box-shadow:none; border-radius:0; }
+}
+
+#toc{ font-family:var(--font-ui); font-size:12px; background:#fff; max-width:210mm;
+  margin:18px auto 6px; padding:14px 18px; border:1px solid var(--line); line-height:1.7; }
+#toc h1{ font-family:var(--font); font-size:19px; margin:0 0 4px; }
+#toc p{ margin:0 0 10px; color:var(--muted); }
+#toc a{ color:#27476f; text-decoration:none; margin-right:8px; white-space:nowrap; }
+#toc a:hover{ text-decoration:underline; }
+#toc a.r{ color:#1d5c4a; font-weight:600; }
+#toc a.x{ color:#b3261e; font-weight:600; }
+#toc .row{ margin-bottom:7px; }
+#toc .lbl{ display:inline-block; min-width:118px; font-weight:600; color:#1b1917; vertical-align:top; }
+#toc .key{ margin-top:10px; padding-top:8px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
+</style>
+</head>
+<body>
+
+<div id="ui">
+  <strong>Voverės 2026 · v3</strong>
+
+  <div class="grp">
+    <span>Dydis</span>
+    <button data-w="210mm" data-h="148.5mm" class="on">A5 · 2 lape</button>
+    <button data-w="105mm" data-h="148.5mm">A6 · 4 lape</button>
+    <button data-w="210mm" data-h="297mm">A4 · 1 lape</button>
+  </div>
+
+  <div class="grp">
+    <span>Šriftas</span>
+    <button data-font='Georgia, "Cambria", "Times New Roman", serif' class="on">Serif</button>
+    <button data-font='"Segoe UI", system-ui, "Helvetica Neue", sans-serif'>Sans</button>
+    <button id="fminus">A−</button><button id="fplus">A+</button>
+  </div>
+
+  <div class="grp">
+    <span>Dalys</span>
+    <label><input type="checkbox" data-sec="theory" checked> Teorija</label>
+    <label><input type="checkbox" data-sec="ex" checked> Pratimai</label>
+    <label><input type="checkbox" data-sec="ref" checked> Refleksija</label>
+    <label><input type="checkbox" data-sec="cit" checked> Citatos</label>
+    <label><input type="checkbox" data-sec="adm" checked> Organiz.</label>
+    <label><input type="checkbox" data-sec="bank" checked> Bankas</label>
+  </div>
+
+  <div class="grp">
+    <span>Peržiūra</span>
+    <button class="flagbtn restored" id="btnRestored">⟲ Grąžintos + nauja (18)</button>
+    <button class="flagbtn risk" id="btnRisk">● Su rizikos žyma (9)</button>
+  </div>
+
+  <button class="print" onclick="window.print()">Spausdinti / PDF</button>
+  <div class="hint">Ctrl+P → Margins: <b>None</b> → ☑ Background graphics. Nuolatinius nustatymus keisk failo viršuje, <code>:root{ }</code> bloke.</div>
+</div>
+
+<div id="toc">
+  <h1>Suflerio kortelės · v3 „teorija pirma"</h1>
+  <p>Iš Aukos į Kūrėją · 2 dalys · 3 val. 22 min · 20–30 žmonių · reali komanda</p>
+
+  <div class="row"><span class="lbl">Organizaciniai</span>
+    <a href="#ADM-1">Eiga</a><a href="#ADM-2">Krepšys</a><a href="#ADM-3">Avarinė</a><a href="#ADM-4">Kas pasikeitė</a></div>
+
+  <div class="row"><span class="lbl">Įžanga</span>
+    <a href="#D1-0a">0a</a><a href="#D1-0b">0b</a><a href="#D1-0c">0c</a><a href="#D1-0d" class="r">0d Žemėlapis ★</a></div>
+
+  <div class="row"><span class="lbl">1.1 · §1</span>
+    <a href="#D1-1">1</a><a href="#D1-2">2</a><a href="#D1-3" class="r">3 ⟲</a><a href="#D1-4">4</a><a href="#D1-5">5</a><a href="#D1-6" class="r">6 ⟲</a></div>
+
+  <div class="row"><span class="lbl">1.2 · §2</span>
+    <a href="#D1-7">7</a><a href="#D1-8">8</a><a href="#D1-9" class="x">9 ⟲●</a><a href="#D1-10">10</a><a href="#D1-11">11</a><a href="#D1-12">12</a></div>
+
+  <div class="row"><span class="lbl">1.3 · §3</span>
+    <a href="#D1-13" class="r">13 ⟲</a><a href="#D1-14">14</a><a href="#D1-15">15</a><a href="#D1-16" class="r">16 ⟲</a><a href="#D1-17">17</a><a href="#D1-P">PRAKTIKA</a></div>
+
+  <div class="row"><span class="lbl">Refleksija 1</span>
+    <a href="#REF-1">1</a><a href="#REF-2">2</a><a href="#REF-3">3</a><a href="#REF-4">4 avarinė</a><a href="#REF-5">5 vadovas</a></div>
+
+  <div class="row"><span class="lbl">2.1 · §4§5§6</span>
+    <a href="#D2-1">1</a><a href="#D2-2" class="x">2 ⟲●</a><a href="#D2-3" class="r">3 ⟲</a><a href="#D2-4" class="r">4 ⟲</a><a href="#D2-5" class="r">5 ⟲</a><a href="#D2-6">6</a></div>
+
+  <div class="row"><span class="lbl">2.2 · §7</span>
+    <a href="#D2-7" class="r">7 ⟲</a><a href="#D2-8" class="r">8 ⟲</a><a href="#D2-9" class="r">9 ⟲</a><a href="#D2-10" class="r">10 ⟲</a><a href="#D2-11">11</a><a href="#D2-12">12</a></div>
+
+  <div class="row"><span class="lbl">2.3 · §8§9</span>
+    <a href="#D2-13" class="r">13 ⟲</a><a href="#D2-14" class="r">14 ⟲</a><a href="#D2-15" class="x">15 ⟲●</a><a href="#D2-16" class="r">16 ⟲</a><a href="#D2-17">17</a><a href="#D2-P">PRAKTIKA</a></div>
+
+  <div class="row"><span class="lbl">Refleksija 2</span>
+    <a href="#REF-6">6</a><a href="#REF-7">7</a><a href="#REF-8">8</a><a href="#REF-9">9</a><a href="#REF-10">10</a><a href="#REF-11">11 uždarymas</a></div>
+
+  <div class="row"><span class="lbl">Pratimai</span>
+    <a href="#P1">P1</a><a href="#P3">P3</a><a href="#P4">P4</a><a href="#P5">P5</a><a href="#P11">P11</a><a href="#P6">P6</a><a href="#P7">P7</a><a href="#P13">P13</a><a href="#P23">P23</a><a href="#E1">E1</a></div>
+
+  <div class="row"><span class="lbl">Bankas</span>
+    <a href="#B-1">B-1…B-8</a> <span style="color:#6b655c">(v2 kortelės, netelpančios į v3)</span></div>
+
+  <div class="row"><span class="lbl">Citatos</span>
+    <a href="#C-1">C-1…C-16</a></div>
+
+  <div class="row" style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)"><span class="lbl">Kiti failai</span>
+    <a href="00-PRADEK-CIA.md">00 Indeksas</a><a href="01-skaidriu-planas-v3.md">01 v3 PLANAS</a><a href="04-temu-zemelapis.md">04 Temų žemėlapis</a><a href="02-praktiniai-pavyzdziai.md">02 Pratimai [P…]</a><a href="03-irankiai-issinesimui.md">03 Įrankiai [Į…]</a><a href="01-skaidriu-planas.md">01 v1 turinio bankas</a><a href="01-skaidriu-planas-v2.md">01 v2</a></div>
+
+  <div class="row"><span class="lbl">Pirminis šaltinis</span>
+    <a href="../consciousness-library-beginning/consciousness-library-beginning_v2.md">consciousness-library-beginning_v2.md</a> <span style="color:#6b655c">— „Sąmoningumo biblioteka", §1–§9</span></div>
+
+  <div class="key">
+    <b style="color:#1d5c4a">⟲ GRĄŽINTA</b> — buvo pirminiame dokumente ir v1, v2 dėl komandiškumo ašies išmetė. Sugrąžinta. &nbsp;·&nbsp;
+    <b style="color:#b3261e">● RIZIKA KOMANDOJE</b> — realiai gali suveikti prieš tave; kortelėje yra „KOMANDOJE" blokas. &nbsp;·&nbsp;
+    <b style="color:#a8620f">○ PERFRAZUOK</b> — veikia, bet komandai reikia kitaip suformuluoti.
+  </div>
+</div>
+
+<div id="deck">
+
+<!-- ═══════════════ ORGANIZACINIAI ═══════════════ -->
+
+<section class="card adm" id="ADM-1" data-sec="adm">
+  <header><span class="code">ADM-1</span><span class="meta">Eiga · v3 · 3:22</span></header>
+  <h2>Dienos eiga</h2>
+  <div class="board"><span class="board-label">Laikas</span><pre>0:00  Įžanga + ŽEMĖLAPIS ANT LENTOS    D1-0a…0d
+0:12  1.1  §1 Dvi orientacijos         D1-1…6
+0:27  1.2  §2 Du požiūrio taškai       D1-7…12
+0:42  1.3  §3 Kūrėjo kalba             D1-13…17
+0:57  PRAKTIKA  P4 / P11 / P5          D1-P
+1:12  REFLEKSIJA 1  atviras ratas      REF-1…5
+1:42  ——— PERTRAUKA 10 min ———
+1:52  2.1  §4§5§6 Savęs santykis, ribos D2-1…6
+2:07  2.2  §7 Nebijoti klysti           D2-7…12
+2:22  2.3  §8§9 Dabartis ir kortos      D2-13…17
+2:37  PRAKTIKA  P6 / P7 / P13           D2-P
+2:52  REFLEKSIJA 2  ratas→susitarimai→šūkis REF-6…11
+3:22  Pabaiga</pre></div>
+  <ul>
+    <li>Jei reikia griežtų <b>3:10</b> — įžanga 8 min, refleksija 1 → 26 min. <b>Žemėlapio netrumpink.</b></li>
+    <li>Per I ratą <b>užsirašyk 3 sakinius</b> — nuo jų prasideda D2-1.</li>
+  </ul>
+  <p class="next"><span>▸ ADM-2 Krepšys</span><span>Voverės 2026 · v3</span></p>
+</section>
+
+<section class="card adm" id="ADM-4" data-sec="adm">
+  <header><span class="code">ADM-4</span><span class="meta">Kas pasikeitė nuo v2</span></header>
+  <h2>Žymos ir ką jos reiškia</h2>
+  <div class="board"><span class="board-label">Trys žymos</span><pre>⟲ GRĄŽINTA (17 + 1 nauja = 18)
+   buvo pirminiame dokumente ir v1;
+   v2 išmetė, kai ašis pasuko į komandą.
+   (+ D1-0d „Žemėlapis" — visiškai nauja)
+
+● RIZIKA KOMANDOJE (3 kortelės)
+   D1-9 · D2-2 · D2-15
+   gali suveikti PRIEŠ tave. Skaityk „KOMANDOJE" bloką.
+
+○ PERFRAZUOK (6 kortelės)
+   D1-3 · D2-3 · D2-4 · D2-5 · D2-13 · D2-16
+   veikia, bet komandai reikia kitaip suformuluoti nei studentams.</pre></div>
+  <ul>
+    <li><b>Sąžiningai:</b> <b>tris</b> korteles v2 išmetė dėl <b>geros</b> priežasties (rizika realioje komandoje). Likusias <b>keturiolika</b> — dėl <b>prastos</b>: susiaurinau apimtį į komandą ir to neįvardijau.</li>
+    <li>Viršuje — mygtukai <b>„Grąžintos"</b> ir <b>„Su rizikos žyma"</b>. Peržiūrėk abi grupes atskirai prieš renginį.</li>
+    <li>Jei kurią nors ● kortelę nuspręsi praleisti — <b>Bankas</b> turi saugesnį pakaitalą: D1-9 → B-6 · D2-2/D2-3 → B-1 · D2-15 → C-16.</li>
+  </ul>
+  <p class="next"><span>▸ ADM-2</span><span>Voverės 2026 · v3</span></p>
+</section>
+
+<section class="card adm" id="ADM-2" data-sec="adm">
+  <header><span class="code">ADM-2</span><span class="meta">Ką pasiimti</span></header>
+  <h2>Krepšys</h2>
+  <ul class="tick">
+    <li><b>Gumytės</b> — pagal žmonių skaičių (D2-11, P3)</li>
+    <li><b>A6 lapeliai</b> — 3 kompl. (D1-0c, šūkis, padėkos)</li>
+    <li><b>Kortų kaladė</b> — 1 (D2-17, P7)</li>
+    <li><b>Trys A3 lapai / kėdės</b> — P6 Trys krepšiai</li>
+    <li><b>Dideli lapai</b> — 4–5 · <b>Žymekliai</b> 5–6 · <b>Klijų juosta</b></li>
+    <li><b>Lipnūs lapeliai</b> (šūkis) · <b>Lipdukai</b> 60+ (susitarimai)</li>
+    <li><b>Kalbėjimo daiktas</b> — akmuo, kamuoliukas. <u>Ne mikrofonas.</u></li>
+    <li><b>Lenta + vieta, kur žemėlapis liks visą dieną</b> ★</li>
+  </ul>
+  <p class="next"><span>▸ ADM-3 Avarinė</span><span>Voverės 2026 · v3</span></p>
+</section>
+
+<section class="card adm" id="ADM-3" data-sec="adm">
+  <header><span class="code">ADM-3</span><span class="meta">Avarinė kortelė</span></header>
+  <h2>Penki sakiniai mintinai</h2>
+  <ol style="padding-left:16px;margin:0">
+    <li>Aš negaliu visada pasirinkti to, kas man nutinka, bet galiu mokytis pasirinkti, ką su tuo darau.</li>
+    <li>Auka klausia, kas kaltas. Kūrėjas klausia, ką galiu sukurti iš to, ką turiu dabar.</li>
+    <li>Tai, ką kiti daro, yra mano jausmų dirgiklis, bet ne priežastis.</li>
+    <li>Gelbėtojas duoda atsakymus. Treneris duoda klausimus. Klausimai palieka galią žmogui.</li>
+    <li>Turint tas kortas, kurias turiu, koks yra geriausias mano ėjimas?</li>
+  </ol>
+  <p class="next"><span>▸ D1-0a</span><span>Voverės 2026 · v3</span></p>
+</section>
+
+<!-- ═══════════════ ĮŽANGA ═══════════════ -->
+
+<section class="card d1" id="D1-0a" data-sec="theory">
+  <header><span class="code">D1-0a</span><span class="meta">Įžanga · 0:00 · (buvo R1-1)</span></header>
+  <h2>Titulinė</h2>
+  <p class="teze">Aš negaliu visada pasirinkti to, kas man nutinka, tačiau galiu mokytis pasirinkti, ką su tuo darau.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Aš negaliu visada pasirinkti to,
+kas man nutinka.
+Bet galiu mokytis pasirinkti,
+ką su tuo darau.</pre></div>
+  <ul>
+    <li>Užrašai. Perskaitai garsiai. <b>3 sek. pauzė.</b> Tik tada prisistatai.</li>
+    <li>Viena tikra istorija, kodėl tema tau svarbi. <b>Ne CV.</b></li>
+    <li>„Tai ne mano sukurta filosofija — tai kelių autorių idėjos, sujungtos viena ašimi: perėjimu iš Aukos į Kūrėjo poziciją."</li>
+  </ul>
+  <p class="next"><span>→ „Trys dalykai, dėl kurių susitarkime."</span><span>▸ D1-0b</span></p>
+</section>
+
+<section class="card d1" id="D1-0b" data-sec="theory">
+  <header><span class="code">D1-0b</span><span class="meta">Įžanga · 0:03 · (buvo R1-2)</span></header>
+  <h2>Susitarimas</h2>
+  <p class="teze">Šiandien niekas nebus išspręstas ir niekas nebus taisomas.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. Elgesys, ne žmonės
+2. Kas kambaryje — lieka kambaryje
+3. Dalyvauju tiek, kiek pasirenku
+4. Šiandien nesprendžiame bylų</pre></div>
+  <ul>
+    <li><b>4-oji svarbiausia realiai komandai:</b> „Jei kas tikisi, kad bus išspręstas konkretus ginčas — nebus. Mes ruošiame įrankius, kuriais išspręsite patys, be manęs."</li>
+    <li>Kritinis sakinys: <b>„Greičiausias būdas tapti Persekiotoju — pasakyti kitam, kad jis elgiasi kaip auka."</b></li>
+  </ul>
+  <p class="next"><span>→ „Pradėkim nuo to, kur jūs šiandien esate."</span><span>▸ D1-0c</span></p>
+</section>
+
+<section class="card d1" id="D1-0c" data-sec="theory">
+  <header><span class="code">D1-0c</span><span class="meta">Įžanga · 0:06 · [P1] · (buvo R1-3)</span></header>
+  <h2>Termometras</h2>
+  <p class="teze">Kiekvienas iš mūsų per savaitę bent kartą buvome abiejose pozicijose.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Situacija komandoje per 7 dienas,
+kuri tave suerzino.
+(1–2 sakiniai. Niekas nematys.)</pre></div>
+  <ul>
+    <li>A6 lapeliai. <b>3 min.</b> „Ne didžiausią dramą — <b>vidutinę</b>."</li>
+    <li><b>Nedaryk apklausos garsiai.</b></li>
+    <li>„Grįšime prie šito lapelio penkis kartus."</li>
+  </ul>
+  <p class="next"><span>→ „Prieš eidami gilyn — visa sistema vienu žvilgsniu."</span><span>▸ D1-0d</span></p>
+</section>
+
+<section class="card d1" id="D1-0d" data-sec="theory" data-flag="restored">
+  <header><span class="code">D1-0d ★</span><span class="meta">Įžanga · 0:09 · NAUJA · 3 min</span></header>
+  <div class="badges"><span class="badge restored">⟲ nauja v3</span></div>
+  <h2>Šios dienos žemėlapis</h2>
+  <p class="teze">Štai visa sistema. Dabar eisime per ją iš eilės, ir šis piešinys liks lentoje iki pabaigos.</p>
+  <div class="board"><span class="board-label">Ant lentos — piešk ir PALIK</span><pre>1 DALIS — SISTEMA
+  AUKA          ──►  KŪRĖJAS
+  PERSEKIOTOJAS ──►  IŠŠŪKIO METĖJAS
+  GELBĖTOJAS    ──►  TRENERIS
+  ① kaip veikia  ② į vidų / į išorę  ③ kokia kalba</pre></div>
+  <ul>
+    <li><b>Ši kortelė yra visos v3 struktūros esmė.</b> Prieš kiekvieną segmentą grįžk ir <b>parodyk pirštu, kur esame.</b> Kainuoja 10 sek.</li>
+    <li>„Pirmoje dalyje — kaip veikia mechanizmas tarp žmonių. Antroje — ko reikia žmogui, kad jis tame mechanizme galėtų stovėti."</li>
+  </ul>
+  <p class="next"><span>→ „Pradedame nuo pirmojo langelio."</span><span>▸ D1-1</span></p>
+</section>
+
+<!-- ═══════════════ 1.1 · §1 ═══════════════ -->
+
+<section class="card d1" id="D1-1" data-sec="theory">
+  <header><span class="code">D1-1</span><span class="meta">1.1 · §1 · 0:12 · (buvo R1-4)</span></header>
+  <h2>Aukos trikampis</h2>
+  <p class="teze">Konfliktas nėra chaosas — tai tvarkinga trijų vaidmenų struktūra, kurią visi mokame atmintinai.</p>
+  <div class="board"><span class="board-label">Ant lentos — piešk</span><pre>            AUKA
+      „aš negaliu" / „man taip nutiko"
+          /        \
+         /          \
+ PERSEKIOTOJAS —— GELBĖTOJAS
+ žmogus, aplinkybė,  „aš padarysiu
+ sąlyga               už tave"</pre></div>
+  <ul>
+    <li>Karpmanas, 1968. <b>Žemėlapis, ne diagnozė.</b> Aukos orientacijoje į gyvenimą žiūrima <b>pirmiausia per problemą</b>.</li>
+    <li>Persekiotojas <b>nebūtinai žmogus</b> — sistema, aplinkybė, terminai, aš pats sau.</li>
+    <li>Gelbėtojas — tas, kuris turi išspręsti už mane tai, ko pats nesu pasiruošęs daryti.</li>
+  </ul>
+  <p class="next"><span>→ „Šie vaidmenys palaiko vienas kitą."</span><span>▸ D1-2</span></p>
+</section>
+
+<section class="card d1" id="D1-2" data-sec="theory">
+  <header><span class="code">D1-2</span><span class="meta">1.1 · §1 · 0:15 · ⟳ · (buvo R1-5)</span></header>
+  <h2>Karuselė</h2>
+  <p class="teze">Auka suteikia Persekiotojui galią, o Gelbėtojas — priklausomybę. Vaidmenys keičiasi, trikampis lieka.</p>
+  <div class="board"><span class="board-label">Ant lentos — pridėk rodykles ratu</span><pre>   AUKA ⟳ PERSEKIOTOJAS ⟳ GELBĖTOJAS ⟳</pre></div>
+  <ul>
+    <li>Gelbėtojas, kuriam nepadėkojo → <b>Auka</b>: „po visko, ką aš dėl jūsų padariau…"</li>
+    <li>Auka, kuri prasiveržia → <b>Persekiotojas</b>. Persekiotojas, kuriam atkirto → <b>Auka</b>.</li>
+    <li>„Sėdynę pakeisti galima. Karuselę sustabdyti — ne."</li>
+  </ul>
+  <p class="next"><span>⟳ 60 sek: „Kuris kampas pas mus dažniausias? Be vardų."</span><span>▸ D1-3</span></p>
+</section>
+
+<section class="card d1" id="D1-3" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D1-3</span><span class="meta">1.1 · §1 · 0:18 · v1 skaidrė 9</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Tapti auka ≠ gyventi Aukos pozicijoje</h2>
+  <p class="teze">Yra didžiulis skirtumas tarp to, kad tau nutiko kažkas blogo, ir to, kad tu su tuo susitapatinai.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Man taip nutiko."
+       ≠
+„Aš esu tai, kas man nutiko."</pre></div>
+  <ul>
+    <li>Mes visi patiriame skausmą, neteisybę, praradimus ir situacijas, kur objektyviai nuo mūsų mažai kas priklauso. <b>Tai ne apie pozityvų mąstymą.</b></li>
+    <li>„Šis žemėlapis nėra apie kaltę. Jis apie tai, kur po viso to yra tavo kitas ėjimas."</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje</b>Studentams tai saugos kortelė. <b>Komandoje ji dvipusė:</b> ją galima išgirsti kaip leidimą atverti visas nuoskaudas dėl organizacijos. Todėl iš karto pridėk antrą pusę: <i>„Ir tai nėra kvietimas šiandien perkratyti visų bylų — tam bus kita vieta."</i> Nuoroda į D1-0b 4-ąją taisyklę.</div>
+  <p class="next"><span>→ „Šitam trikampiui yra atsvara."</span><span>▸ D1-4</span></p>
+</section>
+
+<section class="card d1" id="D1-4" data-sec="theory">
+  <header><span class="code">D1-4</span><span class="meta">1.1 · §1 · 0:21 · (buvo R1-6)</span></header>
+  <h2>Kūrėjo trikampis: antidotas</h2>
+  <p class="teze">Kiekvienam Dramos trikampio vaidmeniui yra priešnuodis.</p>
+  <div class="board"><span class="board-label">Ant lentos — antras trikampis šalia</span><pre>  AUKA          →  KŪRĖJAS
+  PERSEKIOTOJAS →  IŠŠŪKIO METĖJAS
+  GELBĖTOJAS    →  TRENERIS</pre></div>
+  <ul>
+    <li>David Emerald, <i>The Power of TED*</i> — The Empowerment Dynamic.</li>
+    <li>Žodis <b>antidotas</b>, ne „sprendimas". Nuodas ir priešnuodis veikia toje pačioje sistemoje: tie patys žmonės, tie patys susirinkimai — <b>kitas santykis</b>.</li>
+    <li><b>Kūrėjas</b> prisiima atsakomybę už pasirinkimus · <b>Iššūkio metėjas</b> — kas trukdo, tampa galimybe mokytis · <b>Treneris</b> — vietoj gelbėjimo padeda rasti savo sprendimą.</li>
+  </ul>
+  <p class="next"><span>→ „Kūrėjo orientacija prasideda nuo klausimo."</span><span>▸ D1-5</span></p>
+</section>
+
+<section class="card d1" id="D1-5" data-sec="theory">
+  <header><span class="code">D1-5</span><span class="meta">1.1 · §1 · 0:23 · (buvo R1-7)</span></header>
+  <h2>Klausimo pakeitimas</h2>
+  <p class="teze">Auka klausia „kas kaltas?". Kūrėjas klausia „ką aš galiu sukurti iš to, ką turiu dabar?".</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>   K̶a̶s̶ ̶d̶ė̶l̶ ̶t̶o̶ ̶k̶a̶l̶t̶a̶s̶?̶
+   Ką galiu sukurti iš to, ką turiu dabar?</pre></div>
+  <ul>
+    <li>Klausimas nurodo smegenims, <b>ko ieškoti</b>. „Kas kaltas" grąžina kaltininką — gali būti visiškai teisingas atsakymas, kuris nieko nekeičia.</li>
+    <li><b>Konkretus ėjimas komandai:</b> kai susirinkimas užstringa ties tuo, kas ką padarė — vienas sakinys: <i>„Palaukite — ko mes čia iš tikrųjų norime?"</i></li>
+  </ul>
+  <p class="next"><span>→ „Bet problemos nuo to nedingsta."</span><span>▸ D1-6</span></p>
+</section>
+
+<section class="card d1" id="D1-6" data-sec="theory" data-flag="restored">
+  <header><span class="code">D1-6</span><span class="meta">1.1 · §1 · 0:25 · v1 skaidrė 12</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Problemos lieka</h2>
+  <p class="teze">Kūrėjas nėra tas, kuris neturi problemų. Pasikeičia ne problemų kiekis, o santykis su jomis.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Auka   REAGUOJA į aplinkybes.
+Kūrėjas KURIA iš aplinkybių kitą žingsnį.</pre></div>
+  <ul>
+    <li>Emeraldas pats sako: <b>Kūrėjo orientacija nėra vien saldybė ir šviesa</b> — ji reikalauja daug sunkaus darbo.</li>
+    <li>Kūrėjo santykis su galia irgi kitoks: ne galia <b>prieš</b> kitus (tai Persekiotojo galia), o galia <b>kurti</b> ir galia <b>kartu</b>.</li>
+    <li><b>Pasakyk tai garsiai</b> — antraip visa diena nuskambės kaip pažadas, kad po jos bus lengviau.</li>
+  </ul>
+  <p class="next"><span>→ „Dabar — antrasis žemėlapio langelis."</span><span>▸ D1-7</span></p>
+</section>
+
+<!-- ═══════════════ 1.2 · §2 ═══════════════ -->
+
+<section class="card d1" id="D1-7" data-sec="theory">
+  <header><span class="code">D1-7</span><span class="meta">1.2 · §2 VIDINIS · 0:27 · ★ · (buvo R1-8)</span></header>
+  <h2>Dirgiklis ≠ priežastis</h2>
+  <p class="teze">Tai, ką kiti daro, yra mano jausmų dirgiklis, bet niekada — priežastis.</p>
+  <div class="board"><span class="board-label">Ant lentos — piešk</span><pre>KITO VEIKSMAS → [ MANO POREIKIAI ] → MANO JAUSMAS
+   dirgiklis          priežastis</pre></div>
+  <ul>
+    <li><b>Prieš tai grįžk prie žemėlapio:</b> „Dabar einame į antrąjį langelį — Kūrėjas turi du požiūrio taškus: į vidų ir į išorę. Pradedame nuo vidaus."</li>
+    <li>Tas pats sakinys dviem žmonėms — skirtingos reakcijos. <b>Skirtumas ne sakinyje.</b></li>
+    <li><b>Ko tai NĖRA:</b> ne „pats kaltas, kad įsižeidei" ir ne kvietimas toleruoti blogą elgesį. Tik viena: galia apibrėžti mano būseną lieka pas mane.</li>
+  </ul>
+  <p class="next"><span>→ „Praktiškai tai atrodo kaip keturios durys."</span><span>▸ D1-8</span></p>
+</section>
+
+<section class="card d1" id="D1-8" data-sec="theory">
+  <header><span class="code">D1-8</span><span class="meta">1.2 · §2 VIDINIS · 0:30 · ★ · (buvo R1-9)</span></header>
+  <h2>Keturios durys</h2>
+  <p class="teze">Išgirdęs kritiką aš visada turiu keturis pasirinkimus — ir du iš jų yra Dramos trikampis.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Tu visiškai negalvoji apie kitus."
+ 1. „Taip, aš blogas"        → AUKA
+ 2. „O tu pats!"             → PERSEKIOTOJAS
+ 3. „Jaučiuosi __, nes man reikia __"  → KŪRĖJAS
+ 4. „Ar tau __, nes tau reikia __?"    → KŪRĖJAS</pre></div>
+  <ul>
+    <li>Rosenbergas rašė nežinodamas apie Karpmaną, Karpmanas — apie Rosenbergą. <b>Sutampa.</b></li>
+    <li><b>3-ias duris galima atidaryti tyliai, galvoje, per 2 sekundes.</b> Vienintelis dienos įrankis, kuriam nereikia kito žmogaus sutikimo.</li>
+  </ul>
+  <p class="next"><span>→ „O ką daryti su pačiu Persekiotoju?"</span><span>▸ D1-9</span></p>
+</section>
+
+<section class="card d1" id="D1-9" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D1-9</span><span class="meta">1.2 · §2 VIDINIS · 0:33 · v1 sk. 13</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge risk">● rizika komandoje</span></div>
+  <h2>Persekiotoją matau kaip Iššūkio metėją</h2>
+  <p class="teze">Tai nereiškia toleruoti žalingą elgesį. Tai reiškia nesuteikti kitam žmogui galios apibrėžti mano būseną.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Jis mane verčia taip jaustis."
+            ↓
+„Tai, ką jis daro, yra iššūkis.
+ Ką galiu pasirinkti daryti aš?"
+
+Gelbėtojui: „Ačiū, vertinu. Patarimą išgirdau,
+ bet sprendimą priimsiu pats ir už jį atsakysiu."</pre></div>
+  <div class="team"><b class="lbl">Komandoje — svarbiausia diena šios kortelės</b>
+  Studentams tai išlaisvina. <b>Realioje komandoje su galios skirtumu ji gali nuskambėti kaip „kęskite savo vadovą".</b> Jei salėje yra vadovas — dar aštriau.
+  <br><b>Kaip apsaugoti (pasakyk BŪTINAI, prieš pavyzdžius):</b>
+  <br>„Tai ne apie tai, kad netinkamas elgesys taptų tinkamu. Netinkamas elgesys lieka netinkamas ir jį reikia įvardyti. Tai <b>tik</b> apie tai, kieno rankose lieka mano būsena tol, kol tas pokalbis dar neįvyko."
+  <br><b>Ir duok kitą pusę:</b> po 3 minučių ateina D1-10, kur kalbama, ką daryti, kai <b>aš pats</b> esu Persekiotojas. Neatidėliok jos — be poros ši kortelė yra vienpusė.</div>
+  <p class="next"><span>→ „O dabar — tas pats, tik į kitą pusę."</span><span>▸ D1-10</span></p>
+</section>
+
+<section class="card d1" id="D1-10" data-sec="theory">
+  <header><span class="code">D1-10</span><span class="meta">1.2 · §2 IŠORINIS · 0:36 · (buvo R2-3)</span></header>
+  <h2>Konstruktyvus Iššūkio metėjas</h2>
+  <p class="teze">Užuot tapęs Persekiotoju, galiu būti tuo, kuris kelia kartelę, bet nežemina.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>sakyti tiesą      — bet nežeminti
+aukšti standartai — bet nevaldyti
+rodyti problemą   — bet be etikečių
+skatinti augimą   — ne baimę</pre></div>
+  <ul>
+    <li><b>Emeraldo testas:</b> kaip sužinoti, ar dabar esi Persekiotojas? <b>Pagal tai, kaip kitas reaguoja.</b> Jei ginasi — tu jam Persekiotojas, nesvarbu, ką norėjai.</li>
+    <li>Tada prašyk <b>„perėjimo iš naujo"</b>: pripažink, kad nuskambėjo ne taip, atsiprašyk už formą, pasakyk tikrą ketinimą.</li>
+    <li><b>Simetrija — parodyk ją ant lentos:</b> D1-9 buvo „į vidų", ši — „į išorę". Ta pati sistema abiem kryptimis.</li>
+  </ul>
+  <p class="next"><span>→ „Ir trečiasis vaidmuo — maloniausias, todėl pavojingiausias."</span><span>▸ D1-11</span></p>
+</section>
+
+<section class="card d1" id="D1-11" data-sec="theory">
+  <header><span class="code">D1-11</span><span class="meta">1.2 · §2 IŠORINIS · 0:38 · (buvo R2-4)</span></header>
+  <h2>Treneris, o ne Gelbėtojas</h2>
+  <p class="teze">Gelbėtojas atima dalį atsakomybės ir vadina tai pagalba. Treneris padeda žmogui atrasti savo galią.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Ko tu iš tikrųjų nori?
+Ką jau bandei?
+Kas tau trukdo?
+Kokias galimybes matai?
+Koks būtų tavo kitas mažas žingsnis?</pre></div>
+  <ul>
+    <li>Riba: <b>paduoti ranką pargriuvusiam yra pagalba; eiti už jį — gelbėjimas.</b></li>
+    <li>Emerald: treneris laiko žmogų <b>sveiku, išradingu ir pajėgiu</b>, o ne sugedusiu ir taisytinu.</li>
+    <li>Patarti galima — <b>po</b> klausimų ir paklausus: „turiu mintį, nori išgirsti?"</li>
+  </ul>
+  <p class="next"><span>→ „O kas nutinka komandai su vienu labai geru Gelbėtoju?"</span><span>▸ D1-12</span></p>
+</section>
+
+<section class="card d1" id="D1-12" data-sec="theory">
+  <header><span class="code">D1-12</span><span class="meta">1.2 · §2 · 0:40 · ⟳ · (buvo R2-5)</span></header>
+  <h2>Gelbėtojo kaina komandoje</h2>
+  <p class="teze">Kuo daugiau vienas padaro už kitus, tuo mažiau komanda moka daryti pati.</p>
+  <div class="board"><span class="board-label">Ant lentos — piešk</span><pre>     →   ○   ←
+    →   /|\   ←
+        / \
+  „Kas nutinka, kai jis išeina?"</pre></div>
+  <ul>
+    <li>Kiekvienoje komandoje yra žmogus, kuris <b>„vis tiek padarys"</b>. Atrodo kaip stipriausia grandis — iš tikrųjų <b>vienintelis lūžio taškas</b>, ir perdega pirmas.</li>
+    <li><b>Be kaltinimo:</b> niekas nekaltas. Gelbėtojas gelbsti, nes tai atrodo kaip rūpestis. Kiti leidžia, nes taip greičiau. <b>Abi pusės sutaria nesąmoningai.</b></li>
+  </ul>
+  <p class="next"><span>⟳ 60 sek: „Ką komanda darytų, jei aš savaitei dingčiau?"</span><span>▸ D1-13</span></p>
+</section>
+
+<!-- ═══════════════ 1.3 · §3 ═══════════════ -->
+
+<section class="card d1" id="D1-13" data-sec="theory" data-flag="restored">
+  <header><span class="code">D1-13</span><span class="meta">1.3 · §3 · 0:42 · v1 sk. 17–18</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>NVC: keturi žingsniai</h2>
+  <p class="teze">Galima būti Kūrėju viduje ir vis tiek kalbėti Persekiotojo kalba — todėl pozicijai reikia gramatikos.</p>
+  <div class="board"><span class="board-label">Ant lentos — trečiasis žemėlapio langelis</span><pre>1 STEBĖJIMAS  „šią savaitę tris kartus susitarėme
+                dėl indų, jie liko neplauti"
+2 JAUSMAS     „jaučiuosi pavargęs ir susierzinęs"
+3 POREIKIS    „man svarbu tvarka ir kad darbus
+                dalytumėmės atsakingai"
+4 PRAŠYMAS    „ar galėtum po vakarienės sutvarkyti?"</pre></div>
+  <ul>
+    <li>Marshall B. Rosenberg. <b>Dešinysis stulpelis nėra mandagesnis — jis konkretesnis.</b> Kairysis yra apie kitą žmogų, dešinysis — apie mane ir faktus.</li>
+    <li>Kaltinimo formuluotė kviečia gintis, o gynyba <b>užsuka trikampį iš naujo</b>.</li>
+  </ul>
+  <p class="next"><span>→ „Ir vienas dalykas, ties kuriuo visi suklumpa."</span><span>▸ D1-14</span></p>
+</section>
+
+<section class="card d1" id="D1-14" data-sec="theory">
+  <header><span class="code">D1-14</span><span class="meta">1.3 · §3 · 0:45 · ⟳ · (buvo R1-10)</span></header>
+  <h2>Jausmas ar kaltinimas?</h2>
+  <p class="teze">„Jaučiuosi, kad tu…" beveik niekada nėra jausmas.</p>
+  <div class="board"><span class="board-label">Ant lentos — klausk: kuris yra jausmas?</span><pre>1. „Jaučiuosi, kad manęs negerbia."
+2. „Jaučiuosi pavargęs."
+3. „Jaučiuosi, kad tu tyčia."</pre></div>
+  <ul>
+    <li>Tik antrasis. 1 ir 3 — <b>kaltinimai su jausmo kauke</b>.</li>
+    <li>Tikri jausmai: pavargęs · susierzinęs · išsigandęs · liūdnas · nusivylęs · vienišas · sutrikęs · įtemptas.</li>
+  </ul>
+  <p class="next"><span>⟳ 60 sek: kiekvienas pasako tokį sakinį kaimynui. Apie bet ką.</span><span>▸ D1-15</span></p>
+</section>
+
+<section class="card d1" id="D1-15" data-sec="theory">
+  <header><span class="code">D1-15</span><span class="meta">1.3 · §3 · 0:48 · (buvo R2-6)</span></header>
+  <h2>Prašymas ≠ reikalavimas</h2>
+  <p class="teze">Tikras prašymas turi galėti priimti ir „taip", ir „ne". Jeigu „ne" man nepriimtinas — tai buvo ne prašymas.</p>
+  <div class="board"><span class="board-label">Ant lentos — po „NE" aš…</span><pre>apkaltinu („kaip visada")        → REIKALAVIMAS
+užkabinu kaltę („aš pats kaip nors") → REIKALAVIMAS
+pasidomiu, kas jam trukdo        → PRAŠYMAS</pre></div>
+  <ul>
+    <li>Rosenberg: išgirdęs reikalavimą žmogus mato tik du kelius — <b>paklusti arba maištauti</b>. Paklusęs padaro prastai; sumaištavęs — negerai su tavimi.</li>
+    <li>Testas prieš atveriant burną: <b>„Ar aš galiu priimti 'ne'?"</b> Jei ne — sąžiningiau pasakyti, kad tai susitarimo klausimas, o ne malonė.</li>
+  </ul>
+  <p class="next"><span>→ „O kas nutinka, kai gauni 'ne'?"</span><span>▸ D1-16</span></p>
+</section>
+
+<section class="card d1" id="D1-16" data-sec="theory" data-flag="restored">
+  <header><span class="code">D1-16</span><span class="meta">1.3 · §3 · 0:51 · v1 sk. 20</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Kai gavai „ne"</h2>
+  <p class="teze">„Ne" panaikina vieną kelią, o ne mano poreikį.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>AUKA:   „Aš paprašiau, o tu nepadarei —
+         vadinasi, manimi nesirūpini."
+
+KŪRĖJAS: „Gerai. Mano poreikis vis dar
+          egzistuoja. Kokį kitą sprendimą
+          galiu sukurti?"</pre></div>
+  <ul>
+    <li>Aukos pozicija iš „ne" daro išvadą apie <b>santykį</b>. Kūrėjas — apie <b>metodą</b>.</li>
+    <li><b>„Nesėkmingas būdas nėra nesėkmingas gyvenimas. Tai informacija apie pasirinktą būdą."</b></li>
+    <li>Rinktis prašymą <b>nereiškia</b> pasiduoti. Reiškia: neįtikinėju, kol nesupratau, kas jam trukdo pasakyti „taip".</li>
+  </ul>
+  <p class="next"><span>→ „Ir vienas įrankis būtent jūsų susirinkimams."</span><span>▸ D1-17</span></p>
+</section>
+
+<section class="card d1" id="D1-17" data-sec="theory">
+  <header><span class="code">D1-17</span><span class="meta">1.3 · §3 · 0:54 · neprivaloma · (buvo R2-7)</span></header>
+  <h2>„Bas": pasakyk, kokio atsakymo nori</h2>
+  <p class="teze">Didžiąją dalį susirinkimo suėda pasisakymai, po kurių niekas nesupranta, ko iš jų norima.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Pasakysiu dalyką ir noriu iš jūsų …"
+   ▸ sprendimo   ▸ nuomonės
+   ▸ kad žinotumėte   ▸ pagalbos
+
+„Man neaišku, kokio atsakymo tu nori. Gali pasakyti?"</pre></div>
+  <ul>
+    <li><b>Istorija:</b> Rosenbergą pakvietė stebėti grupę, kurios susitikimai mėnesius nieko neduodavo. Po 20 min pasakojimų jis paklausė, ar kieno poreikiai patenkinti — <b>nė vieno</b>. Paklausė pirmojo, ko jis norėjo: <b>„Nežinau."</b></li>
+    <li>Pakanka <b>vieno</b> žmogaus komandoje.</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Jei trūksta laiko</b>Šią kortelę galima praleisti — ji vienintelė 1.3 segmente nėra iš tavo dokumento. Bet komandai ji duoda daugiausiai praktinės naudos per mažiausiai laiko.</div>
+  <p class="next"><span>→ „15 minučių praktikos."</span><span>▸ D1-P</span></p>
+</section>
+
+<section class="card d1" id="D1-P" data-sec="theory">
+  <header><span class="code">D1-P</span><span class="meta">1 DALIS · PRAKTIKA · 0:57–1:12</span></header>
+  <h2>Rinkis VIENĄ pratimą</h2>
+  <div class="board"><span class="board-label">Sprendimas</span><pre>daug patarinėjimo, gelbėjimo →  P4  Užčiaupta burna  (§2 išorinis)
+gynybiškumas, kritika skauda →  P11 Keturios durys  (§2 vidinis)
+daug neišsakytų prašymų      →  P5  „Ne" laboratorija (§3)</pre></div>
+  <ul>
+    <li><b>[P4] stipriausias šitai daliai</b> — vienintelis leidžia pajusti abu §2 požiūrio taškus per 15 min.</li>
+    <li>Jei dvejoji tarp dviejų — rinkis <b>nepatogesnį</b>.</li>
+    <li><b>Palik 2 min</b> pabaigoje: išėjimas iš vaidmens + „ką pastebėjote" garsiai.</li>
+  </ul>
+  <p class="next"><span>→ Toliau: REF-1 … REF-5</span><span>▸ P4 / P11 / P5</span></p>
+</section>
+
+<!-- ═══════════════ 2.1 · §4 §5 §6 ═══════════════ -->
+
+<section class="card d2" id="D2-1" data-sec="theory">
+  <header><span class="code">D2-1</span><span class="meta">2.1 · 1:52 · ★ · (buvo R2-1)</span></header>
+  <h2>Ką išgirdome</h2>
+  <p class="teze">Tai, ką ši komanda ką tik pasakė garsiai, svarbiau už viską, ką aš čia atnešiau.</p>
+  <div class="board"><span class="board-label">Ant lentos — trys sakiniai iš I rato + antrosios dalies žemėlapis</span><pre>1. ______________________
+2. ______________________
+3. ______________________
+
+2 DALIS — KAS LEIDŽIA JOJE STOVĖTI
+ ① santykis su savimi ir ribos  (§4 §5 §6)
+ ② santykis su klaida           (§7)
+ ③ santykis su laiku ir kortomis (§8 §9)</pre></div>
+  <ul>
+    <li>Perskaityk <b>lėtai</b>, anonimiškai. <b>Nekomentuok.</b></li>
+    <li>„Pirmoje dalyje dėliojome sistemą. Antroje — ko reikia žmogui, kad jis toje sistemoje galėtų stovėti."</li>
+  </ul>
+  <p class="next"><span>→ „Ir pradedame nuo paties pagrindo."</span><span>▸ D2-2</span></p>
+</section>
+
+<section class="card d2" id="D2-2" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-2</span><span class="meta">2.1 · §4 · 1:55 · v1 sk. 21</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge risk">● rizika komandoje</span></div>
+  <h2>Vidinė žaizda</h2>
+  <p class="teze">Kai kas nors paliečia seną žaizdą, skauda ne tik dėl dabartinės situacijos.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Kodėl tas pats sakinys
+dviem žmonėms skauda skirtingai?
+
+  sakinys → [ SENA ŽAIZDA ] → skausmas</pre></div>
+  <ul>
+    <li>Don Miguel Ruiz: kiekvienas turime vidinę „odos ligą" — vietas, kurios itin jautrios. <b>Skirtumas ne sakinyje. Skirtumas žaizdoje.</b></li>
+    <li>Jungtis su D1-7: štai kodėl dirgiklis nėra priežastis.</li>
+  </ul>
+  <div class="team"><b class="lbl">Komandoje — čia v2 išmetė dėl geros priežasties</b>
+  Studentų auditorijoje tai saugu. <b>Darbo komandoje — ne.</b> Žmonės sėdi su tais, su kuriais rytoj dirbs, galbūt su vadovu. Kvietimas pažvelgti į savo žaizdas sukuria atsivėrimus, kurių pirmadienį gailimasi.
+  <br><b>Trys apsaugos, visos privalomos:</b>
+  <br>1. <b>Nieko neprašyk pasakoti.</b> Šitas blokas yra <u>tik kalbėjimas</u>, be pratimo ir be apklausos.
+  <br>2. Pasakyk garsiai: <i>„Aš nieko neklausiu ir neprašau nieko pasakoti. Tai informacija, ne užduotis."</i>
+  <br>3. Laikyk <b>2 minutes, ne 5</b>. Eik tiesiai į D2-3, kuri yra išeitis.
+  <br><b>Jei komanda įtempta arba nepažįsti jos — praleisk D2-2 ir D2-3, pradėk nuo D2-4.</b></div>
+  <p class="next"><span>→ „Ir čia yra skirtumas tarp žaizdos ir rando."</span><span>▸ D2-3</span></p>
+</section>
+
+<section class="card d2" id="D2-3" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-3</span><span class="meta">2.1 · §4 · 1:57 · v1 sk. 22</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Randas, ne atvira žaizda</h2>
+  <p class="teze">Randas sako „taip, tai įvyko", bet nebesako „man vis dar skauda".</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Taip, tai įvyko."
+M̶a̶n̶ ̶v̶i̶s̶ ̶d̶a̶r̶ ̶s̶k̶a̶u̶d̶a̶.̶
+
+„Tai yra mano istorijos dalis,
+ bet tai nėra mano tapatybė
+ ir neprivalo būti mano ateitis."</pre></div>
+  <ul>
+    <li>Kūrėjo kelias nėra apsimesti, kad žaizdų nėra. <b>Kaip chirurgas negali išgydyti pūliuojančios žaizdos jos neatvėręs.</b></li>
+    <li>Tarp „pripažįstu, kas man nutiko" ir „aš esu tai, kas man nutiko" yra <b>visas gyvenimas skirtumo</b>.</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje</b>Ši kortelė saugesnė už D2-2, nes kalba apie <b>skirtumą</b>, o ne apie žaizdą. Komandoje ją verta pasukti į <b>bendrą</b> plotmę: <i>„Tas pats galioja ir komandai. Ar mūsų senos istorijos yra randai, ar dar atviros žaizdos?"</i> Tai atveda tiesiai į D2-4 ir vėliau į susitarimus.</div>
+  <p class="next"><span>→ „Tas pats principas galioja ir tam, ką duodame kitiems."</span><span>▸ D2-4</span></p>
+</section>
+
+<section class="card d2" id="D2-4" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-4</span><span class="meta">2.1 · §5 · 1:59 · v1 sk. 23</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Davimas iš trūkumo ir iš gausos</h2>
+  <p class="teze">Auka duoda tam, kad gautų. Kūrėjas duoda todėl, kad gali ir nori duoti.</p>
+  <div class="board"><span class="board-label">Ant lentos — virtuvės metafora</span><pre>„Po visko, ką aš dėl tavęs padariau…"
+        ↑ davimas iš trūkumo
+
+Virtuvė, kurioje pakanka ingredientų:
+gaminu ne todėl, kad privalės atgal —
+o todėl, kad turiu kuo dalintis.
+
+Patikra: „Ar duočiau, jei žinočiau,
+          kad nieko negausiu atgal?"</pre></div>
+  <ul>
+    <li>Jei negaliu duoti be lūkesčio — <b>du sąžiningi pasirinkimai</b>: neduoti arba <b>aiškiai susitarti</b>, ko tikiuosi mainais.</li>
+    <li>Sandoriai yra normalūs. <b>Neįvardyti sandoriai — ne.</b></li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje — realus pavojus</b>Darbo kontekste tai <b>labai lengvai</b> nuskamba kaip „dirbkite daugiau nemokamai ir nieko nesitikėkite". Ypač jei salėje yra vadovas.
+  <br><b>Apsauga — pasakyk pirmiau, nei kas nors suspės taip pagalvoti:</b> <i>„Tai nėra apie darbą be atlygio. Atlygis yra sutartis, ir ji turi būti aiški. Tai apie tuos dalykus, kurių niekas neužrašė: kas ką kam padaro už sutarties ribų ir kas dėl to tyliai kaupia sąskaitą."</i></div>
+  <p class="next"><span>→ „Bet noras duoti neturi virsti pareiga duoti be ribų."</span><span>▸ D2-5</span></p>
+</section>
+
+<section class="card d2" id="D2-5" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-5</span><span class="meta">2.1 · §6 · 2:01 · v1 sk. 24</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Ribos: trys klausimai</h2>
+  <p class="teze">Sveikos ribos nėra egoizmas — tai gebėjimas atskirti savo dalį nuo kito žmogaus dalies.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. Kas yra MANO atsakomybė?
+2. Kas yra KITO atsakomybė?
+3. Ko aš apskritai NEGALIU kontroliuoti?
+
+„Tai mano dalis. Aš ją prisiimu."
+„Tai tavo dalis. Galiu tave palaikyti,
+ bet negaliu jos nugyventi už tave."</pre></div>
+  <ul>
+    <li>Sprendžiu kitų problemas, nors jie galėtų → <b>Gelbėtojas</b>. Leidžiu spręsti už mane → <b>Auka</b>.</li>
+    <li><b>Įspėjimas, nepraleisk:</b> tarp ribų ir manipuliacijos yra plona linija. „Aš kuriu savo gyvenimą" nėra leidimas žengti per kitus.</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje</b>Hierarchijoje ribų brėžimas gali nuskambėti kaip nepaklusnumas. Pridėk vieną sakinį: <i>„Riba nėra atsisakymas dirbti. Riba yra aiškumas, kur baigiasi mano dalis — ir būtent tai leidžia ja pasikliauti."</i>
+  <br>Jei kas nors komandoje ką tik pradėjo brėžti ribas ir dabar atrodo staiga nemalonus — naudinga <b>B-2</b> (trys tarpsniai): tai pusiaukelė, ne charakterio pablogėjimas.</div>
+  <p class="next"><span>→ „Ruizas tą patį pasako viena metafora."</span><span>▸ D2-6</span></p>
+</section>
+
+<section class="card d2" id="D2-6" data-sec="theory">
+  <header><span class="code">D2-6</span><span class="meta">2.1 · §6 · 2:04 · (buvo R1-11)</span></header>
+  <h2>Dvi kiekvieno santykio pusės</h2>
+  <p class="teze">Kiekvienas santykis turi dvi puses, ir aš esu visiškai atsakingas tik už vieną.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>┌──────────────┬──────────────┐
+│  MANO PUSĖ   │  TAVO PUSĖ   │
+└──────────────┴──────────────┘
+   „Kuri šito dalis yra mano pusė?"</pre></div>
+  <ul>
+    <li>Ruizo pavyzdys — santykis su <b>šunimi</b>: šuo savo pusę atlieka nepriekaištingai (jis tiesiog yra šuo), tu savo irgi. Santykis veikia.</li>
+    <li>Nesėkmė prasideda, kai imuosi tvarkyti <b>antrąją</b> pusę. Kai bandau šunį paversti kate.</li>
+    <li><b>Komandoje:</b> „aš savo dalį padariau, dabar man belieka jam aiškinti, kaip daryti jo."</li>
+  </ul>
+  <p class="next"><span>→ „Bet net ir laikantis savo ribų, klaidų neišvengsi."</span><span>▸ D2-7</span></p>
+</section>
+
+<!-- ═══════════════ 2.2 · §7 ═══════════════ -->
+
+<section class="card d2" id="D2-7" data-sec="theory" data-flag="restored">
+  <header><span class="code">D2-7</span><span class="meta">2.2 · §7 · 2:07 · v1 sk. 25</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Dviguba nesėkmė</h2>
+  <p class="teze">Nepabandyti yra ne viena nesėkmė, o dvi: nesužinai nei rezultato, nei to, ko būtum išmokęs.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Pabandau ir nepavyksta → 1 nesėkmė (+ patirtis)
+Nepabandau            → 2 nesėkmės (nieko)
+
+Laukia ne „pavyks / nepavyks",
+o „PAVYKS / PASIMOKYSIU".</pre></div>
+  <ul>
+    <li>Bijome ne nesėkmės, o su ja susijusio skausmo. Todėl nebandymas atrodo kaip apsauga. <b>Bet tai apgaulingas saugumas</b> — skausmas tik pakeičiamas kitu: ilgu „o kas būtų, jeigu…".</li>
+    <li>Pabandęs ir patyręs nesėkmę — <b>atsakymą jau turi</b> ir gali judėti toliau.</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje — čia yra iniciatyvos šerdis</b>Šita kortelė tiesiogiai apmoka „iniciatyvumo" tikslą. Pasuk ją į daugiskaitą: <i>„Kiek idėjų šitoje komandoje niekada nebuvo pasakytos garsiai? Ir kiek iš jų buvo antroji, tylioji nesėkmė?"</i></div>
+  <p class="next"><span>→ „Bet ką daryti su pačia klaida?"</span><span>▸ D2-8</span></p>
+</section>
+
+<section class="card d2" id="D2-8" data-sec="theory" data-flag="restored">
+  <header><span class="code">D2-8</span><span class="meta">2.2 · §7 · 2:10 · dok. §7.2</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Klaida — ne nuosprendis, o pamoka</h2>
+  <p class="teze">Kiekvienas pasirinkimas duoda vieną iš dviejų: rezultatą arba pamoką.</p>
+  <div class="board"><span class="board-label">Ant lentos — kaip klausti kitų</span><pre>N̶e̶:̶ ̶„̶A̶r̶ ̶m̶a̶n̶o̶ ̶i̶d̶ė̶j̶a̶ ̶g̶e̶r̶a̶?̶"̶
+
+„Ką konkrečiai tu matai šioje dalyje?"
+„Kokia būtų didžiausia rizika?"
+„Ką aš galbūt praleidau?"
+„Kokius alternatyvius sprendimus matai?"</pre></div>
+  <ul>
+    <li>Klaida nebūtinai reiškia „aš nesugebu". Ji gali reikšti: <b>„šis būdas nesuveikė. Ką dabar žinau, ko anksčiau nežinojau?"</b></li>
+    <li>Kitas žmogus turi <b>savo</b> patirtį, baimes ir galbūt pats gyvena Aukos trikampyje. Jo neigiamas atsakymas nebūtinai reiškia, kad vizija bloga.</li>
+    <li><b>„Tuomet kitų nuomonė tampa informacija, o ne leidimu veikti."</b></li>
+  </ul>
+  <p class="next"><span>→ „Ir vienas žodis, kuris tai pakeičia beveik nemokamai."</span><span>▸ D2-9</span></p>
+</section>
+
+<section class="card d2" id="D2-9" data-sec="theory" data-flag="restored">
+  <header><span class="code">D2-9</span><span class="meta">2.2 · §7 · 2:13 · v1 sk. 26</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>„Treniruojuosi" vietoj „bandau"</h2>
+  <p class="teze">„Bandymas" turi dvi baigtis. „Treniruotė" turi tik eigą.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>    B̶A̶N̶D̶A̶U̶   →   TRENIRUOJUOSI
+
+„Pabandysiu pakalbėti su juo."
+„Treniruojuosi tokius pokalbius."</pre></div>
+  <ul>
+    <li>„Pabandysiu" = vienkartinis įvykis su dviem baigtimis. Po nesėkmės nusvyra rankos.</li>
+    <li>„Treniruojuosi" = klaida nustoja būti nuosprendžiu ir tampa proceso dalimi. <b>Niekas nesako „šiandien nepavyko treniruotė, matyt, sportas ne man".</b></li>
+    <li><b>Vienintelis dienos įrankis, kuriam nereikia nei laiko, nei drąsos — tik pakeisti vieną žodį.</b></li>
+  </ul>
+  <p class="next"><span>→ „Kodėl treniruotė veikia, nors rezultato ilgai nematyti?"</span><span>▸ D2-10</span></p>
+</section>
+
+<section class="card d2" id="D2-10" data-sec="theory" data-flag="restored">
+  <header><span class="code">D2-10</span><span class="meta">2.2 · §7 · 2:15 · v1 sk. 27</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Ledo kubelis ir WD-40</h2>
+  <p class="teze">Tirpimą sukėlė ne paskutinis laipsnis, o visi prieš tai buvę.</p>
+  <div class="board"><span class="board-label">Ant lentos — piešk termometrą</span><pre>−10 −9 −8 −7 … −1  0  +1
+                          ↑ tirpsta
+
+WD-40 = „Water Displacement, 40th attempt"
+39 nepavykę bandymai nebuvo tušti.</pre></div>
+  <ul>
+    <li>James Clear: kiekvienas laipsnis atskirai lyg ir nieko nekeičia. Bet prie +1 kubelis staiga pradeda tirpti — <b>dėl visų ankstesnių</b>.</li>
+    <li>Jei po pirmo ar antro karto rezultato nematyti — tai <b>nereiškia, kad kryptis neteisinga</b>. Kritinė patirties masė dar nesusiformavusi.</li>
+    <li>Uždarymui: <b>„Drąsa nėra tuomet, kai turime aiškų matymą — tai gebėjimas judėti pirmyn, kai viskas neaišku."</b></li>
+  </ul>
+  <p class="next"><span>→ „O kaip atrodo tas judesys?"</span><span>▸ D2-11</span></p>
+</section>
+
+<section class="card d2" id="D2-11" data-sec="theory">
+  <header><span class="code">D2-11</span><span class="meta">2.2 · §7 · 2:17 · [P3] · (buvo R2-11)</span></header>
+  <h2>Dinaminė įtampa</h2>
+  <p class="teze">Kūrimas veikia ne iš motyvacijos, o iš įtampos tarp to, kas yra, ir to, ko noriu.</p>
+  <div class="board"><span class="board-label">Ant lentos · išdalink gumytes</span><pre>DABARTIS  ~~~~~~~~~~~~~~  VIZIJA
+ (kairė)                  (dešinė)
+
+     KURI RANKA NORI JUDĖTI?</pre></div>
+  <ul>
+    <li>Dauguma pasakys — <b>dešinė</b>. Lengviausias būdas nuraminti įtampą — <b>sumažinti viziją</b>. Komandoje skamba brandžiai: „na, realiai šiemet to nepadarysim".</li>
+    <li>Antras būdas apgauti save — <b>meluoti apie kairę ranką</b>. Emerald: sunkiausia dalis yra pamatyti tikrovę jos nevadinant nei gera, nei bloga.</li>
+    <li><b>Klausimas salei, pasakyk lėtai:</b> „Kas jūsų komandoje turi teisę garsiai pasakyti, kaip yra iš tikrųjų? Ir kas nutinka tam žmogui?"</li>
+  </ul>
+  <p class="next"><span>→ „Ir judama vienu būdu."</span><span>▸ D2-12</span></p>
+</section>
+
+<section class="card d2" id="D2-12" data-sec="theory">
+  <header><span class="code">D2-12</span><span class="meta">2.2 · §7 · 2:20 · (buvo R2-12)</span></header>
+  <h2>Mažas žingsnis turi vardą ir datą</h2>
+  <p class="teze">Nėra iššvaistyto mažo žingsnio — bet žingsnis be vardo ir datos nėra žingsnis.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>      KAS · KĄ · IKI KADA
+
+ >15 min  → tai projektas, ne žingsnis
+ „MES"    → tai ne vardas</pre></div>
+  <ul>
+    <li>Emerald: <b>nėra iššvaistyto mažo žingsnio</b> — kiekvienas arba priartina, arba duoda informaciją.</li>
+    <li>„Mes turėtume geriau komunikuoti" <b>nėra</b> žingsnis. „Iki penktadienio Tomas parašo vieną sakinį kanale po kiekvieno skambučio" — <b>yra</b>.</li>
+  </ul>
+  <p class="next"><span>→ „Paskutinis žemėlapio langelis."</span><span>▸ D2-13</span></p>
+</section>
+
+<!-- ═══════════════ 2.3 · §8 §9 ═══════════════ -->
+
+<section class="card d2" id="D2-13" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-13</span><span class="meta">2.3 · §9 · 2:22 · v1 sk. 28</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Trys kontrolės kategorijos</h2>
+  <p class="teze">Geras gyvenimas prasideda nuo gebėjimo atskirti, ką kontroliuoju visiškai, ko visai ne, ir kam darau tik dalinę įtaką.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>VISIŠKAI      IŠ DALIES        VISAI NE
+kiek ruošiuosi  ar gausiu projektą  ar rytoj lis
+kokiu tonu      ar jis atsakys      rinkos sąlygos
+kalbu
+
+Jungiklis → dichotomija (Epiktetas)
+Dimeris   → trichotomija (Irvine)</pre></div>
+  <ul>
+    <li>Epiktetas: viskas arba mūsų valdžioje, arba ne. Irvine pastebėjo, kad „ne mūsų" skyla į dvi.</li>
+    <li><b>Vidurinė kategorija apima beveik visą kasdienį darbą.</b></li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje</b>Studentams tai asmeninis įrankis. <b>Komandoje sukis į daugiskaitą:</b> ne „ką aš kontroliuoju", o <i>„ką MŪSŲ komanda kontroliuoja visiškai?"</i> Tada pratimas [P6] duoda ne asmeninį sąrašą, o bendrą — ir iš jo išeina susitarimai.
+  <br><b>Atsargiai:</b> ši kortelė gali būti panaudota kaip skydas („čia ne mūsų rankose") — pridėk klausimą: <i>„O kiek dalykų mes per greitai nurašėme į dešinį stulpelį?"</i></div>
+  <p class="next"><span>→ „Ir viduriniajai kategorijai yra atskiras įrankis."</span><span>▸ D2-14</span></p>
+</section>
+
+<section class="card d2" id="D2-14" data-sec="theory" data-flag="restored">
+  <header><span class="code">D2-14</span><span class="meta">2.3 · §9 · 2:25 · v1 sk. 29</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span></div>
+  <h2>Vidinis tikslas</h2>
+  <p class="teze">Šalia išorinio tikslo („privalome laimėti") visada turėk vidinį („gerai sužaidžiame savo dalį").</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>IŠORINIS: „gauti tą projektą"
+VIDINIS:  „pasiruošiame tris dienas,
+           parašome individualiai,
+           atsakome ramiai net į nepatogų klausimą"</pre></div>
+  <ul>
+    <li>Vidinis tikslas apsaugo nuo to, kad aplinkybės atimtų visą sėkmės pojūtį. <b>Galima pralaimėti varžybas ir vis tiek pasiekti tikrąjį tikslą.</b></li>
+    <li>Ir praktiškiau: vidinis tikslas yra <b>vienintelis, pagal kurį galima sąžiningai įvertinti save</b> — ir vienintelis, pagal kurį komanda gali sąžiningai įvertinti viena kitą.</li>
+  </ul>
+  <p class="next"><span>→ „O iš kurios vietos apskritai galime judėti?"</span><span>▸ D2-15</span></p>
+</section>
+
+<section class="card d2" id="D2-15" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-15</span><span class="meta">2.3 · §8 · 2:28 · v1 sk. 31</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge risk">● rizika komandoje</span></div>
+  <h2>Kur telkiame galią</h2>
+  <p class="teze">Kai manome, kad už tai, kur šiandien esame, atsakingi kiti, tą pačią akimirką atiduodame jiems galią mus valdyti.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>PRAEITIS  —  [ DABARTIS ]  —  ATEITIS
+ grįžimas       vienintelė      nerimas
+ mintimis       vieta, iš kurios
+                galime judėti</pre></div>
+  <ul>
+    <li>Abu kraštus jungia tas pats bruožas: dėmesys nukreiptas į laiką, kurio <b>nebekontroliuojame arba dar neturime</b>.</li>
+    <li><b>Būtinas patikslinimas, nepraleisk:</b> tai didelis supaprastinimas. Depresija ir nerimas turi kur kas sudėtingesnes priežastis. <b>Kreiptis pagalbos yra Kūrėjo, o ne Aukos veiksmas.</b></li>
+  </ul>
+  <div class="team"><b class="lbl">Komandoje — čia v2 išmetė dėl geros priežasties</b>
+  Dokumente yra stipri eilutė: <i>„Jei manai, kad kažkas sugriovė tavo gyvenimą — tuomet esi teisus. Tai buvai tu."</i> Studentui tai išlaisvina. <b>Darbo komandoje, kur būna realių struktūrinių problemų — prasto valdymo, per mažo etatų skaičiaus, netvarkingų procesų — ji nuskamba kaip kaltinimas aukai.</b> Ir žmonės tai išgirsta būtent taip.
+  <br><b>Dvi galimybės:</b>
+  <br>1. <b>Nenaudok Nietzsche's eilutės.</b> Palik tik laiko schemą ir dabarties mintį — ji veikia be jos.
+  <br>2. Jei naudoji — <b>pridėk kitą pusę iš karto:</b> <i>„Tai netaikoma tam, kas iš tikrųjų nepriklauso nuo jūsų. Dalis dalykų šitoje organizacijoje tikrai nėra jūsų rankose — tam ir buvo ankstesnė kortelė apie tris kategorijas. Tai taikoma tik trečiajam stulpeliui."</i>
+  <br><b>Jei salėje yra vadovas:</b> naudok 1 variantą.</div>
+  <p class="next"><span>→ „Ir vienas dalykas, kurio dažniausiai nepadarome."</span><span>▸ D2-16</span></p>
+</section>
+
+<section class="card d2" id="D2-16" data-sec="theory" data-flag="restored risk">
+  <header><span class="code">D2-16</span><span class="meta">2.3 · §8§9 · 2:31 · v1 sk. 32</span></header>
+  <div class="badges"><span class="badge restored">⟲ grąžinta</span><span class="badge reframe">○ perfrazuok</span></div>
+  <h2>Padėkok sau · negatyvi vizualizacija</h2>
+  <p class="teze">Dėkingumas dažnai reiškia ne naujo dalyko gavimą, o naujai pamatyti tai, ką jau turi.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Niekas negali mylėti tavęs labiau,
+ nei gali tu pats."
+
+„Kas būtų, jeigu staiga šito nebeturėčiau?"
+              ↓
+„Bet aš tai turiu. Ir man pasisekė, kad turiu."</pre></div>
+  <ul>
+    <li>Šiame taške esame dėl <b>savų</b> praeities sprendimų — tai ne kaltinimas, o <b>laisvė</b>: jei atvedė mano pasirinkimai, tai ir toliau veda mano pasirinkimai.</li>
+    <li>Irvine, stoikų praktika: prie gerų dalykų priprantame taip, kad jie <b>tampa nematomi</b>.</li>
+  </ul>
+  <div class="team mid"><b class="lbl">Komandoje</b>Sukis į komandą: <i>„Kas šitoje komandoje veikia taip gerai, kad jūs to nebepastebite?"</i> Tai tiesiogiai paruošia [P13] arba jungiasi su avilio pratimu.
+  <br><b>Įspėjimas:</b> netinka, jei komanda ką tik ką nors realiai prarado (atleidimai, išėjęs žmogus, žlugęs projektas). Tada tai ne praktika, o skausmas.</div>
+  <p class="next"><span>→ „Ir paskutinė mintis."</span><span>▸ D2-17</span></p>
+</section>
+
+<section class="card d2" id="D2-17" data-sec="theory">
+  <header><span class="code">D2-17</span><span class="meta">2.3 · §9 · 2:34 · (buvo R2-14)</span></header>
+  <h2>Žaisk tomis kortomis, kurias gavai</h2>
+  <p class="teze">Skųsdamasis kortomis žaidimo nepagerinsi. Klausimas visada: turint šias kortas, koks geriausias ėjimas?</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Koks geriausias MŪSŲ bendras ėjimas?"
+
+30 sek. taisyklė:
+ nieko negaliu pakeisti? →
+ „Kokias kortas turime, kurių neįvertinome?"</pre></div>
+  <ul>
+    <li>Mel Robbins: kiekvienam išdalijama kortų kombinacija. <b>Kartais gyvenimas tikrai nesąžiningas</b> — vieniems kortos iškrenta geresnės. Bet skundimasis rankos nekeičia.</li>
+    <li><b>Posūkis, kuriuo baigiasi teorija:</b> gyvenimas nebūtinai žaidimas prieš kitus. Kito sėkmė nepablogina tavo rankos. <b>Jo stiprybė — tavo mokytoja, jo žinios — tavo išteklius, tavo stiprybė — jo pagalba.</b></li>
+  </ul>
+  <p class="next"><span>→ „15 minučių praktikos, ir statome susitarimus."</span><span>▸ D2-P</span></p>
+</section>
+
+<section class="card d2" id="D2-P" data-sec="theory">
+  <header><span class="code">D2-P</span><span class="meta">2 DALIS · PRAKTIKA · 2:37–2:52</span></header>
+  <h2>Rinkis VIENĄ pratimą</h2>
+  <div class="board"><span class="board-label">Sprendimas</span><pre>daug energijos tam, ko nevaldome → P6  Trys krepšiai   (§9)
+lyginimasis, nusivylimas sąlygom → P7  Kortų dalybos   (§9)
+komanda šalta arba pavargusi     → P13 Padėka trimis dalimis (§5)</pre></div>
+  <ul>
+    <li><b>[P13] saugiausias</b> ir beveik niekada nepavyksta blogai. Jei abejoji — imk jį.</li>
+    <li><b>[P6] duoda daugiausiai medžiagos susitarimams</b>, jei dirbsi „mūsų komandos" daugiskaita (žr. D2-13).</li>
+    <li><b>Baik 2 min anksčiau.</b> Perėjimas į susitarimus turi įvykti nesustojant.</li>
+  </ul>
+  <p class="next"><span>→ Toliau: REF-6 … REF-11</span><span>▸ P6 / P7 / P13</span></p>
+</section>
+
+<!-- ═══════════════ REFLEKSIJA ═══════════════ -->
+
+<section class="card ref" id="REF-1" data-sec="ref">
+  <header><span class="code">REF-1</span><span class="meta">I refleksija · 1:12–1:42</span></header>
+  <h2>Atviras ratas — struktūra</h2>
+  <p class="teze">Komanda tampa komanda tą akimirką, kai išgirsta viena kitą be taisymo.</p>
+  <div class="board"><span class="board-label">30 minučių</span><pre>0–3   Kėdės į ratą. Be stalų. Taisyklės.
+3–8   TYLA IR RAŠYMAS (du klausimai)
+8–25  ATVIRAS MIKROFONAS (kalbėjimo daiktas)
+25–30 UŽDARYMO RATAS — po vieną žodį</pre></div>
+  <ul>
+    <li><b>Pradedi tu</b> — ~40 sek., kad parodytum ilgį ir gylį. Tada perduodi daiktą.</li>
+    <li><b>★ Per ratą užsirašyk 3 sakinius.</b> Nuo jų prasidės D2-1.</li>
+  </ul>
+  <p class="next"><span>▸ REF-2 Taisyklės</span><span>REF-1…5 laikyk rankoje</span></p>
+</section>
+
+<section class="card ref" id="REF-2" data-sec="ref">
+  <header><span class="code">REF-2</span><span class="meta">I refleksija · 1:12</span></header>
+  <h2>Rato taisyklės</h2>
+  <div class="board"><span class="board-label">Ant lentos — užrašyk prieš ratą</span><pre>1. Vienas balsas — kalba tas, kas laiko daiktą
+2. Jokio taisymo — jokių „bet", jokių patarimų
+3. Kalbu apie save — „aš pastebėjau", ne „mes visi"
+4. Praleisti galima — tai pilnavertis dalyvavimas
+5. Konkretūs žmonės neįvardijami — elgesys taip, vardai ne</pre></div>
+  <ul>
+    <li>Perskaityk visas penkias garsiai. <b>Neskubėk.</b></li>
+    <li>Pabrėžk 2-ąją ir 4-ąją.</li>
+  </ul>
+  <p class="next"><span>▸ REF-3 Du klausimai</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-3" data-sec="ref">
+  <header><span class="code">REF-3</span><span class="meta">I refleksija · 1:15 · 5 min tylos</span></header>
+  <h2>Du klausimai rašymui</h2>
+  <p class="teze">Būtent tyla ir rašymas nulemia, ar ratas bus gyvas. Be jų pirmas kalbės penkias minutes, o kiti tylės.</p>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. Kurioje šito žemėlapio vietoje
+   atpažinau SAVE? (Ne komandą. Save.)
+
+2. Kas yra vienas dalykas, kurį AŠ PATS
+   galiu padaryti kitaip jau kitą savaitę?</pre></div>
+  <ul>
+    <li><b>5 pilnos minutės.</b> Neskubink, nekalbėk, nevaikščiok.</li>
+    <li>Pirmasis klausimas tiesiogiai remiasi lentoje likusiu žemėlapiu — <b>parodyk į jį.</b></li>
+  </ul>
+  <p class="next"><span>▸ REF-4 Kai kas nutinka</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-4" data-sec="ref">
+  <header><span class="code">REF-4</span><span class="meta">I refleksija · AVARINĖ KORTELĖ</span></header>
+  <h2>Kai kas nutinka ne taip</h2>
+  <ul style="font-size:calc(var(--fs-body) - .5pt)">
+    <li><b>Tyla po pirmo žmogaus</b> → skaičiuok <b>iki 20. Nekalbėk.</b> Tavo noras užpildyti tylą yra Gelbėtojo refleksas — pasakyk tai vėliau garsiai, puiki iliustracija.</li>
+    <li><b>Vienas kalba 6 min</b> → prieš pradedant įspėk: „po minutės tyliai pakelsiu ranką — tai reiškia 'baik mintį'."</li>
+    <li><b>Virsta skundų sesija</b> → neuždrausk. Leisk 2–3 pasisakymus, tada: <b>„O kuri šito dalis yra mūsų pusė?"</b> ir grąžink daiktą.</li>
+    <li><b>Užsipuolamas žmogus</b> → stabdyk iš karto. „Sustokime. Perfrazuokite kaip elgesį, be vardo."</li>
+    <li><b>Kas nors apsiverkia</b> → <b>netaisyk, negelbėk</b>, neduok servetėlės iš karto. „Nieko. Mes lauksime." Palauk. Tada: „Nori tęsti ar perduoti?"</li>
+    <li><b>Niekas nekalba 3 min</b> → lengvesnis klausimas: „vienas žodis — kaip jautėtės per pratimą?" ir eik ratu <b>privaloma tvarka</b>.</li>
+  </ul>
+  <p class="next"><span>▸ REF-5 Vadovas</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-5" data-sec="ref">
+  <header><span class="code">REF-5</span><span class="meta">I refleksija · jei salėje vadovas</span></header>
+  <h2>Jei salėje yra vadovas</h2>
+  <p class="teze">Svarbiausias rato dizaino klausimas. Spręsk jį <b>prieš</b> renginį.</p>
+  <ul>
+    <li><b>★ Susitark iš anksto: rate jis kalba PASKUTINIS.</b> Jei pasisako pirmas — ratas baigiasi.</li>
+    <li><b>Duok jam sakinį:</b> <i>„Man šiandien svarbiau išgirsti, nei pasakyti. Aš kalbėsiu paskutinis."</i></li>
+    <li><b>Jei kritika nukrypsta į jį</b> → neversk atsakinėti. <b>„Tai išgirsta. Rate mes neatsakinėjame."</b> Ir eik toliau.</li>
+    <li><b>Jei komanda jo bijo</b> → pirmas 10 min rašoma <b>anonimiškai</b>, tu surenki, sumaišai ir skaitai garsiai.</li>
+  </ul>
+  <div class="team"><b class="lbl">Taip pat patikrink</b>Jei vadovas salėje — peržiūrėk <b>D1-9</b>, <b>D2-4</b> ir <b>D2-15</b>. Tai trys kortelės, kurios su vadovu kambaryje skamba kitaip, nei planuoji.</div>
+  <p class="next"><span>Uždarymas: po vieną žodį. Nekomentuok nė vieno.</span><span>▸ REF-6</span></p>
+</section>
+
+<section class="card ref" id="REF-6" data-sec="ref">
+  <header><span class="code">REF-6</span><span class="meta">II refleksija · 2:52–3:02</span></header>
+  <h2>Antrasis ratas</h2>
+  <p class="teze">I rate kalbėjome, ką pastebėjome. Šitame — ką esame pasiruošę daryti.</p>
+  <div class="board"><span class="board-label">Ant lentos — vienas klausimas</span><pre>Koks yra vienas dalykas, kurį AŠ ASMENIŠKAI
+darysiu kitaip — ir dėl kurio jūs galite
+manęs paklausti po mėnesio?</pre></div>
+  <ul>
+    <li>Taisyklės tos pačios + <b>nauja: pirmuoju asmeniu vienaskaita.</b> Ne „mes turėtume". <b>„Aš."</b></li>
+    <li>Jei 25+ žmonės — <b>po vieną sakinį, ~20 sek.</b> Privaloma tvarka, praleisti galima.</li>
+    <li><b>★ Rašyk viską ant lentos, jų pačių žodžiais, netaisyk.</b> Tai susitarimų žaliava.</li>
+  </ul>
+  <p class="next"><span>▸ REF-7 Susitarimai</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-7" data-sec="ref">
+  <header><span class="code">REF-7</span><span class="meta">II refleksija · 3:02–3:14 · 12 min</span></header>
+  <h2>Susitarimai — procedūra</h2>
+  <div class="board"><span class="board-label">Penki žingsniai</span><pre>2 min  Perskaitai garsiai viską nuo lentos. Be komentarų.
+3 min  Grupelėmis po 4: „kurie TRYS pakeistų daugiausia?"
+3 min  Klasterizuoji: „šitie trys apie tą patį?"
+2 min  Balsavimas — kiekvienas turi DU balsus. Renkam 3 (max 5).
+2 min  Aštrinimas — perrašo GRUPĖ, ne tu.</pre></div>
+  <div class="board"><span class="board-label">Ant lentos — šablonas</span><pre>MŪSŲ SUSITARIMAI
+Nuo šiol mes:
+ 1. ______________________
+ 2. ______________________
+ 3. ______________________
+Pasitikrinsime: ______ (data) · sukviečia: ______</pre></div>
+  <p class="next"><span>▸ REF-8 Formuluotė</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-8" data-sec="ref">
+  <header><span class="code">REF-8</span><span class="meta">II refleksija · susitarimų kokybė</span></header>
+  <h2>Trys taisyklės ir ko nedaryti</h2>
+  <div class="board"><span class="board-label">Geras susitarimas</span><pre>ELGESYS, NE VERTYBĖ
+  ✗ „Būsime atviresni"
+  ✓ „Kai neaišku — klausiame iš karto, ne po susitikimo"
+
+MATOMA, AR ĮVYKO
+  ✗ „Gerbsime vienas kitą"
+  ✓ „Susitikime pirmiausia pasakome, kokio atsakymo norime"
+
+YRA KAS PRADEDA
+  ✗ „Visi turėtų…"
+  ✓ „Kiekvienas — savo komandoje, nuo pirmadienio"</pre></div>
+  <ul>
+    <li><b>Ne daugiau kaip 5.</b> Septyni susitarimai yra nulis susitarimų.</li>
+    <li><b>Nerašyk už juos.</b> Rašyk negražiai, jų žodžiais.</li>
+    <li><b>★ Nufotografuoja VISI, čia pat.</b> Vienas <b>komandos narys</b> (ne tu) perrašo ir išsiunčia iki rytdienos.</li>
+  </ul>
+  <p class="next"><span>▸ REF-9 Šūkis</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-9" data-sec="ref">
+  <header><span class="code">REF-9</span><span class="meta">II refleksija · 3:14–3:20 · 6 min</span></header>
+  <h2>Šūkis — kaip pagimdyti</h2>
+  <p class="teze">Vienas sakinys, kurį komanda pati sugalvojo, po pusmečio veikia stipriau nei visa šiandienos teorija.</p>
+  <div class="board"><span class="board-label">Keturi žingsniai</span><pre>2 min  Kiekvienas ant lapelio — VIENAS sakinys, ≤7 žodžiai
+1 min  Suklijuoja ant sienos. Visi atsistoja ir perskaito.
+1 min  BALSAVIMAS KOJOMIS — stoji prie TIKRIAUSIO
+       (ne „gražiausio" — TIKRIAUSIO)
+2 min  Aštrinimas: „ar galime trumpiau?" Kol nebegalima.</pre></div>
+  <div class="board"><span class="board-label">Instrukcija žodis žodin</span><pre>„Toks, kurį galėtume pasakyti vienas kitam
+ susirinkimo viduryje. Ne šūkis iš plakato —
+ sakinys, kuris primena, ką čia šiandien supratome."</pre></div>
+  <p class="next"><span>▸ REF-10 Sėklos</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-10" data-sec="ref">
+  <header><span class="code">REF-10</span><span class="meta">II refleksija · tik jei įstringa</span></header>
+  <h2>Šūkio sėklų bankas</h2>
+  <div class="warn"><b>Naudok TIK jei grupė įstringa.</b> Parodyk ne daugiau kaip <b>tris</b>: „tai pavyzdžiai <b>formos</b>, ne turinio — jūsų bus geresnis."</div>
+  <ul style="font-size:calc(var(--fs-body) - .5pt)">
+    <li>„Aš atsakau už savo pusę."</li>
+    <li>„Ne kas kaltas, o ko norime."</li>
+    <li>„Klausimai vietoj patarimų."</li>
+    <li>„Treniruojamės, o ne bandome."</li>
+    <li>„Už klaidą — vieną kartą."</li>
+    <li>„Pavyks arba pasimokysiu."</li>
+    <li>„Sakyk, ko nori, o ne kas blogai."</li>
+    <li>„Padėk atsistoti, bet neik už jį."</li>
+    <li>„Kokias kortas turime kartu?"</li>
+    <li>„Iššūkis, o ne persekiotojas."</li>
+  </ul>
+  <div class="warn"><b>★ Jei pasirenka frazę, kuri tau atrodo banali — NESIKIŠK.</b> Banalus savas veikia geriau nei genialus svetimas.</div>
+  <p class="next"><span>▸ REF-11 Uždarymas</span><span></span></p>
+</section>
+
+<section class="card ref" id="REF-11" data-sec="ref">
+  <header><span class="code">REF-11</span><span class="meta">Uždarymas · 3:20–3:22 · ★ MOKĖK MINTINAI</span></header>
+  <h2>Uždarymo žodis</h2>
+  <div class="board"><span class="board-label">Ant lentos — tik jų šūkis, didelėmis raidėmis</span><pre>            [ JŲ ŠŪKIS ]</pre></div>
+  <p style="font-size:calc(var(--fs-body) - .3pt);line-height:1.38">„Šiandien padarėme du dalykus.<br><br>
+  Pirmoje dalyje sudėliojome <b>sistemą</b> — kaip veikia mechanizmas tarp žmonių ir kokia kalba jis pasakomas.<br><br>
+  Antroje kalbėjome apie tai, <b>ko reikia žmogui</b>, kad jis toje sistemoje galėtų stovėti: santykio su savimi, su savo ribomis, su savo klaida ir su kortomis, kurias gavo.<br><br>
+  Tikslas nėra kontroliuoti viską. Tikslas — valdyti tai, kas priklauso nuo mūsų, daryti įtaką tam, kam galime, priimti tai, ko pakeisti negalime, vertinti tai, ką jau turime, ir kuo protingiau žaisti tomis kortomis, kurios buvo išdalytos.<br><br>
+  Aš negaliu visada pasirinkti to, kas man nutinka. Bet galiu mokytis pasirinkti, ką su tuo darau.<br><br>
+  Ir jūs ką tik pasirinkote. <b>[Perskaityk jų šūkį garsiai.]</b><br><br>Ačiū."</p>
+  <div class="warn"><b>Nepridėk nieko po šito.</b> Organizacinius pranešimus sakyk <b>prieš</b> uždarymo žodį.</div>
+  <p class="next"><span>Pabaiga.</span><span>▸ P1</span></p>
+</section>
+
+<!-- ═══════════════ PRATIMAI ═══════════════ -->
+
+<section class="card p" id="P1" data-sec="ex">
+  <header><span class="code">P1</span><span class="meta">Pratimas · 4 min · individualiai</span></header>
+  <h2>Kur aš dabar?</h2>
+  <p class="teze">Kiekvienas turi savo, o ne mano, pavyzdį. Visa diena vyks ant šitos medžiagos.</p>
+  <ul>
+    <li><b>1.</b> Išdalink A6 lapelius.</li>
+    <li><b>2.</b> „Situacija komandoje per pastarąsias 7 dienas, kuri jus suerzino. Ne didžiausią dramą — vidutinę."</li>
+    <li><b>3.</b> 1–2 sakiniai. Niekas nematys.</li>
+    <li><b>4.</b> Apverskite: kas buvo <b>aš</b>, kas <b>kitas žmogus</b>, kas <b>aplinkybė</b>.</li>
+    <li><b>5.</b> „Pasidėkite šalia. Grįšime penkis kartus."</li>
+  </ul>
+  <div class="warn"><b>Nedaryk apklausos garsiai.</b></div>
+  <p class="next"><span>Naudojama: D1-0c</span><span>▸ P3</span></p>
+</section>
+
+<section class="card p" id="P3" data-sec="ex">
+  <header><span class="code">P3</span><span class="meta">Pratimas · 10 min · visi kartu</span></header>
+  <h2>Gumytė: dinaminė įtampa</h2>
+  <p class="teze">Stipriausia dienos demonstracija, ir jai reikia mažiausiai laiko.</p>
+  <ul>
+    <li><b>1.</b> Gumytė ant abiejų rodomųjų pirštų. Ištempti iki juntamos įtampos.</li>
+    <li><b>2.</b> „<b>Kairė = dabartinė realybė. Dešinė = vizija.</b> Sugalvokite tai, ką galėtumėte nufotografuoti."</li>
+    <li><b>3.</b> „Ištempkite labiau. Ką jaučiate?" → įtampą.</li>
+    <li><b>4.</b> „Jei gumytė kalbėtų — ko ji nori?" → kad įtampa dingtų.</li>
+    <li><b>5. ★ „KURI RANKA NORI JUDĖTI?"</b> Palauk. Leisk salei pasakyti.</li>
+    <li><b>6.</b> Įžvalga: lengviausia — atsisakyti vizijos. Ir nieko nesukūrei.</li>
+    <li><b>7.</b> „Laikykite dešinę, judinkite kairę." → <b>štai tai ir yra mažas žingsnis.</b></li>
+    <li><b>8.</b> Poromis, 2 min: „vienas dalykas per 48 val., pastumsiantis kairę per centimetrą."</li>
+  </ul>
+  <p class="next"><span>Naudojama: D2-11</span><span>▸ P4</span></p>
+</section>
+
+<section class="card p" id="P4" data-sec="ex">
+  <header><span class="code">P4</span><span class="meta">Pratimas · 15 min · poromis · 1 DALIS ★</span></header>
+  <h2>Užčiaupta burna: Gelbėtojas vs. Treneris</h2>
+  <p class="teze">Dažniausiai stipriausias dienos atradimas. Apmoka §2 išorinį požiūrio tašką.</p>
+  <ul>
+    <li><b>1 raundas — GELBĖTOJAS (3 min).</b> A pasakoja nedidelę tikrą problemą. <b>B užduotis: patarinėti kuo daugiau.</b> „Tu turėtum…", „Aš tavo vietoje…"</li>
+    <li><b>Mikroaptarimas (1 min):</b> A, ką jautei? <i>(dažniausiai: „nustojau kalbėti", „norėjau gintis")</i></li>
+    <li><b>2 raundas — TRENERIS (5 min).</b> Ta pati pora, ta pati problema. <b>B gali sakyti TIK klausimus.</b> Jei netyčia pataria — A pakelia ranką, B perdaro į klausimą.</li>
+    <li><b>Sukeitimas (5 min).</b> Iš karto trenerio raundas.</li>
+    <li><b>Aptarimas (2 min).</b></li>
+  </ul>
+  <div class="board"><span class="board-label">Ant lentos — B atsarginiai klausimai</span><pre>Ko tu iš tikrųjų nori?   Ką jau bandei?
+Kas tau trukdo?          Koks mažiausias kitas žingsnis?</pre></div>
+  <div class="warn"><b>Po 2 raundo kambarys paprastai nutyla. Neskubėk. Leisk pauzei.</b></div>
+  <p class="next"><span>Naudojama: D1-P</span><span>▸ P5</span></p>
+</section>
+
+<section class="card p" id="P5" data-sec="ex">
+  <header><span class="code">P5</span><span class="meta">Pratimas · 12 min · poromis · 1 DALIS</span></header>
+  <h2>„Ne" laboratorija</h2>
+  <p class="teze">Atskirti prašymą nuo reikalavimo ne teoriškai, o pagal tai, kas nutinka kūne, kai gauni „ne".</p>
+  <ul>
+    <li><b>2 min</b> — kiekvienas užsirašo vieną tikrą prašymą: „Kai ___, jaučiuosi ___, nes man svarbu ___. Ar galėtum ___?"</li>
+    <li><b>2 min</b> — A pasako prašymą B. <b>B užduotis: pasakyti „ne".</b> Ramiai, be paaiškinimų.</li>
+    <li><b>30 sek. PAUZĖ.</b> „Nekalbėkite. <b>Pastebėkite, kas įvyko viduje.</b> Erzulys? Noras paaiškinti, kad jis klysta? Noras pasakyti 'na gerai, nesvarbu'?"</li>
+    <li><b>2 min</b> — A atsako Kūrėjo formule ir įvardija <b>bent vieną alternatyvą, nepriklausančią nuo B</b>.</li>
+    <li><b>4 min</b> — sukeitimas. <b>2 min</b> — aptarimas.</li>
+  </ul>
+  <div class="board"><span class="board-label">Uždarymo sakinys</span><pre>„Jei negali priimti 'ne', tai nebuvo prašymas.
+ Tai buvo reikalavimas mandagiu balsu.
+ Ir tai gerai žinoti PRIEŠ atveriant burną."</pre></div>
+  <p class="next"><span>Naudojama: D1-P</span><span>▸ P11</span></p>
+</section>
+
+<section class="card p" id="P11" data-sec="ex">
+  <header><span class="code">P11</span><span class="meta">Pratimas · 15 min · ketvertais · 1 DALIS</span></header>
+  <h2>Keturios durys</h2>
+  <p class="teze">Kai komandoje gynybiškumas. Leidžia dirbti su juo <b>neaptarinėjant</b> konkrečios bylos.</p>
+  <ul>
+    <li><b>2 min</b> — paaiškink duris (D1-8). Kortelė su kritikos sakiniu kiekvienam ketvertui.</li>
+    <li><b>1 min</b> — vienas perskaito sakinį garsiai. Kiti tyli.</li>
+    <li><b>8 min — keturi raundai po 2 min. Visas ketvertas atsako TIK viena forma:</b>
+      <br>① kaltindami save ② kaltindami kalbėtoją ③ „jaučiuosi __, nes man reikia __" ④ „ar tau __, nes tau reikia __?"</li>
+    <li><b>4 min</b> — aptarimas.</li>
+  </ul>
+  <div class="board"><span class="board-label">Kritikos sakiniai (bendri, ne komandos)</span><pre>„Tu visiškai negalvoji apie kitus."
+„Su tavimi neįmanoma susitarti."
+„Vėl tas pats. Kiekvieną kartą."
+„Tu tik apsimeti, kad klausaisi."
+„Tai buvo labai neprofesionalu."</pre></div>
+  <p class="next"><span>Naudojama: D1-P</span><span>▸ P6</span></p>
+</section>
+
+<section class="card p" id="P6" data-sec="ex">
+  <header><span class="code">P6</span><span class="meta">Pratimas · 15 min · grupelėmis · 2 DALIS</span></header>
+  <h2>Trys krepšiai</h2>
+  <p class="teze">Kontrolės trichotomija rankomis + vidinis tikslas. Duoda daugiausiai medžiagos susitarimams.</p>
+  <ul>
+    <li><b>Paruošimas:</b> trys vietos kambaryje: <b>VISIŠKAI KONTROLIUOJAME · IŠ DALIES · VISAI NE</b></li>
+    <li><b>5 min</b> — grupelės po 4–5 rūšiuoja korteles (žemiau) + savo situaciją iš P1.</li>
+    <li><b>3 min</b> — nueik prie „IŠ DALIES" krūvos: <b>„Taip ir turi būti. Beveik visas jūsų darbas yra šitoje krūvoje."</b></li>
+    <li><b>5 min</b> — kiekvienas savo situacijai užrašo <b>išorinį</b> ir <b>vidinį</b> tikslą. Poromis pasako <b>vidinį</b>.</li>
+    <li><b>2 min</b> — aptarimas.</li>
+  </ul>
+  <div class="board"><span class="board-label">Kortelės rūšiavimui</span><pre>kiek valandų ruošiuosi · ar gausime projektą · ar rytoj lis
+ką parašysiu pasiūlyme · ką kiti apie mane galvoja
+kaip reaguoju, kai kritikuoja · ar vadovas pakeis nuomonę
+kokiu tonu kalbu per konfliktą · ar kolega atliks savo dalį
+kada einu miegoti · rinkos sąlygos · ar aš paprašysiu pagalbos</pre></div>
+  <div class="team mid"><b class="lbl">Komandiškumui</b>Rūšiuokite <b>„ką MŪSŲ komanda kontroliuoja"</b>, ne „ką aš". Tada iš kairiojo stulpelio tiesiogiai išeina susitarimai.</div>
+  <p class="next"><span>Naudojama: D2-P</span><span>▸ P7</span></p>
+</section>
+
+<section class="card p" id="P7" data-sec="ex">
+  <header><span class="code">P7</span><span class="meta">Pratimas · 12 min · visi · 2 DALIS</span></header>
+  <h2>Kortų dalybos</h2>
+  <p class="teze">Metaforą apie „kortas, kurias gavai" padaryti fizišką ir nepatogią — nes ji ir gyvenime nepatogi.</p>
+  <ul>
+    <li><b>2 min</b> — dalyk po vieną kortą užversta puse. Nieko neaiškink. Tegul apverčia. <b>Bus reakcijų — pastebėk tai garsiai.</b></li>
+    <li><b>1 min</b> — „Kas jau spėjote pažiūrėti, kokią kortą gavo kaimynas?" <i>(pakels dauguma)</i> „Sveikinu — pademonstravote lyginimąsi, trunkantį mažiau nei tris sekundes."</li>
+    <li><b>2 min</b> — rėmas: korta = gebėjimai, charakteris, patirtis, aplinkybės. <b>Kartais gyvenimas nesąžiningas.</b></li>
+    <li><b>4 min poromis</b> — „turint šitą kortą, koks geriausias mano ėjimas? Ką turiu, ko neįvertinau?"</li>
+    <li><b>3 min ★ POSŪKIS</b> — „sudėkite kortas grupelėmis po keturis. Pažiūrėkite, ką turite <b>kartu</b>. Ar dabar ranka geresnė?"</li>
+  </ul>
+  <div class="warn"><b>Posūkio nepraleisk — jame visa pratimo prasmė.</b> „Kito tūzas nepablogina jūsų rankos."</div>
+  <p class="next"><span>Naudojama: D2-P</span><span>▸ P13</span></p>
+</section>
+
+<section class="card p" id="P13" data-sec="ex">
+  <header><span class="code">P13</span><span class="meta">Pratimas · 15 min · ratu · 2 DALIS · SAUGIAUSIAS</span></header>
+  <h2>Padėka trimis dalimis</h2>
+  <p class="teze">Saugiausias ir stipriausias komandos pratimas. Jei abejoji — imk šitą.</p>
+  <ul>
+    <li><b>2 min</b> — du pavyzdžiai. „Kurią iš šitų dviejų galima panaudoti?"<br>
+      ~„Tu puikiai padirbėjai."~ → <i>„Kai tu vakar perrašei tas tris skaidres, aš pajutau palengvėjimą, nes man buvo svarbu neiti į kambarį nepasiruošusiam."</i></li>
+    <li><b>4 min</b> — kiekvienas rašo <b>vieną</b> padėką <b>vienam konkrečiam žmogui kambaryje</b>, trimis dalimis. Užrašo vardą.</li>
+    <li><b>5 min</b> — atsistoja, suranda, sako <b>garsiai, akis į akį</b>, atiduoda lapelį.</li>
+    <li><b>2 min</b> — priėmimo taisyklė. <b>2 min</b> — aptarimas: „sunkiau buvo sakyti ar priimti?"</li>
+  </ul>
+  <div class="warn"><b>★ Prieš 3 žingsnį tyliai suskaičiuok vardus.</b> Jei kas neminimas — parašyk jam pats.</div>
+  <div class="board"><span class="board-label">Priėmimo taisyklė</span><pre>Jokio „ai, nieko ypatingo". Jokio „ir tu irgi".
+Vienintelis atsakymas: „Ačiū. Man svarbu tai girdėti."</pre></div>
+  <p class="next"><span>Naudojama: D2-P</span><span>▸ P23</span></p>
+</section>
+
+<section class="card p" id="P23" data-sec="ex">
+  <header><span class="code">P23</span><span class="meta">Energizeris · 3 min · visi stovi</span></header>
+  <h2>Pykčio kūno perjungimas</h2>
+  <ul>
+    <li><b>1.</b> „Atsistokite. Prisiminkite situaciją, kurioje neseniai supykote. <b>Neatpasakokite</b> — tiesiog 10 sekundžių."</li>
+    <li><b>2.</b> „Pastebėkite kūną. Kur pečiai? Kur žandikaulis?"</li>
+    <li><b>3.</b> „<b>Apverskime.</b> Atpalaiduokite veidą. Nuleiskite pečius. Pasakykite kaimynui 'labas' balsu <b>perpus tylesniu</b>."</li>
+    <li><b>4.</b> „Praeikite tris žingsnius <b>perpus lėčiau</b>."</li>
+    <li><b>5.</b> Seneka: apversk visus pykčio požymius į priešingus — ir vidinė būsena prisitaikys prie išorinės.</li>
+  </ul>
+  <p class="next"><span>Tinka bet kur, kur krenta energija.</span><span>▸ E1</span></p>
+</section>
+
+<section class="card p" id="E1" data-sec="ex">
+  <header><span class="code">E1</span><span class="meta">Energizeris · 2 min · visi stovi</span></header>
+  <h2>Statula</h2>
+  <ul>
+    <li><b>1.</b> „Atsistokite. <b>Nesakydami nė žodžio</b>, pastatykite kūną į <b>Aukos</b> poziciją." 10 sek.</li>
+    <li><b>2.</b> „Užfiksuokite. Kur jūsų žvilgsnis? Kur pečiai?"</li>
+    <li><b>3.</b> „Dabar — <b>Kūrėjo</b> pozicija." 10 sek.</li>
+    <li><b>4.</b> „Kas pasikeitė?" Surink 2–3 atsakymus.</li>
+    <li><b>5.</b> „Įsidėmėkite — jums <b>nereikėjo aiškinti</b>, kaip atrodo Auka. Visi žinojote iš karto. Vadinasi, ši pozicija jums pažįstama iš vidaus."</li>
+  </ul>
+  <p class="next"><span>Tinka prieš D1-P.</span><span>▸ B-1</span></p>
+</section>
+
+<!-- ═══════════════ ATSARGINIS BANKAS ═══════════════ -->
+
+<section class="card bank" id="B-1" data-sec="bank">
+  <header><span class="code">B-1</span><span class="meta">Bankas · buvo R1-12</span></header>
+  <h2>Baimės takas ir meilės takas <span style="font-size:8pt;color:var(--muted)">(Ruiz)</span></h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>BAIMĖ                MEILĖ
+privalau             noriu
+lūkesčiai→nuoskauda  be lūkesčių
+gailestis            pagarba
+vengiu atsakomybės   prisiimu
+sąlygos „jeigu…"     be sąlygų
+klaida × 1000        klaida × 1</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> pakeičia D2-2…D2-5 vienu bloku, jei nori §4–§6 duoti greičiau ir saugiau.</li>
+    <li>Stipriausia eilutė: <b>„Jei man tavęs gaila — vadinasi, aš tavęs negerbiu."</b></li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-2</span></p>
+</section>
+
+<section class="card bank" id="B-2" data-sec="bank">
+  <header><span class="code">B-2</span><span class="meta">Bankas · buvo R1-13</span></header>
+  <h2>Trys tarpsniai: vergovė → įžūlumas → laisvė</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. EMOCINĖ VERGOVĖ  „atsakau, kaip visi jaučiasi"
+2. ĮŽŪLUMO TARPSNIS „čia tavo problema"
+3. EMOCINĖ LAISVĖ   „atsakau už savo veiksmus,
+   ne už tavo jausmus — ir man svarbu, kad tau irgi gerai"</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D2-5</b> (ribos), jei komandoje kas nors ką tik pradėjo brėžti ribas ir dabar atrodo staiga nemalonus.</li>
+    <li>Rosenbergas 2-ąjį <b>juokais</b> vadina įžūlumo tarpsniu. <b>Tai pusiaukelė, ne charakterio pablogėjimas.</b></li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-3</span></p>
+</section>
+
+<section class="card bank" id="B-3" data-sec="bank">
+  <header><span class="code">B-3</span><span class="meta">Bankas · buvo R1-14</span></header>
+  <h2>„Privalau" → „pasirenku, nes noriu"</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. ką darau, nes „privalau"
+2. „AŠ PASIRENKU …"
+3. „Aš pasirenku ___, nes noriu ___."</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D2-12</b> (mažas žingsnis), jei pagrindinė komandos problema — <b>iniciatyvos trūkumas</b>.</li>
+    <li><b>Rosenbergo istorija:</b> „rašyti klinikines ataskaitas" — suprato, kad <b>tik dėl pinigų</b>, ir daugiau neparašė nė vienos. „Vežti vaikus į mokyklą" — suprato, kad atitinka vertybes, ir vežė toliau <b>kita energija</b>.</li>
+    <li>Pratimas: <b>[P14]</b> (žr. `02-praktiniai-pavyzdziai.md`).</li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-4</span></p>
+</section>
+
+<section class="card bank" id="B-4" data-sec="bank">
+  <header><span class="code">B-4</span><span class="meta">Bankas · buvo R2-2</span></header>
+  <h2>Bitė ir ranka <span style="font-size:8pt;color:var(--muted)">(Markas Aurelijus)</span></h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Gimėme dirbti kartu —
+ kaip rankos ar akių vokai."
+Bitė viena negyvena.</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D2-17</b> („žaidžiame kartu"), jei nori sustiprinti komandiškumo natą, arba uždarymo žodyje.</li>
+    <li><b>Nepatogi detalė, kuri viską paaiškina:</b> Markas Aurelijus žmonių <b>nemėgo</b>, bet kiekvieną rytą keldavosi dirbti su jais ir dėl jų. → <b>Komandiškumas nėra jausmas. Tai sprendimas.</b></li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-5</span></p>
+</section>
+
+<section class="card bank" id="B-5" data-sec="bank">
+  <header><span class="code">B-5</span><span class="meta">Bankas · buvo R2-8</span></header>
+  <h2>Pyktis: keturi žingsniai</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. SUSTOK. KVĖPUOK.
+2. Kokia mano teisianti mintis?
+3. Koks poreikis po ja?
+4. Pasakyk jausmą ir poreikį — ne kaltinimą.</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D1-13</b> (NVC), jei komandoje būna sprogimų.</li>
+    <li>Rosenberg: kiekvienas teisimas yra <b>tragiškai išreikštas nepatenkintas poreikis</b>.</li>
+    <li>Seneka: <b>„Mūsų pyktis visada trunka ilgiau nei mums padaryta žala."</b> + kūno perjungimas [P23].</li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-6</span></p>
+</section>
+
+<section class="card bank" id="B-6" data-sec="bank">
+  <header><span class="code">B-6</span><span class="meta">Bankas · buvo R2-9</span></header>
+  <h2>Kai kolega tiesiog erzina</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>„Šiandien sutiksiu įkyrių ir nedėkingų žmonių."
+„Tikriausiai ir aš kažkam esu tas žmogus."
+„Jis padėjo — tik ne tiek, kiek norėjau."
+„Geriausias kerštas — nebūti tokiam kaip jis."</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D1-9</b> (Persekiotojas → Iššūkio metėjas) — ji <b>sušvelnina D1-9 riziką</b>, nes perkelia dėmesį nuo „kęsk" prie „nešvaistyk energijos".</li>
+    <li>3-ioji eilutė (Seneka) taikliausia: dažnai pykstame ant to, kuris mums <b>padėjo</b>.</li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-7</span></p>
+</section>
+
+<section class="card bank" id="B-7" data-sec="bank">
+  <header><span class="code">B-7</span><span class="meta">Bankas · buvo R2-10</span></header>
+  <h2>Padėka trimis dalimis</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>1. KĄ tu konkrečiai padarei
+2. KAIP aš dėl to jaučiuosi
+3. KOKĮ mano poreikį tai patenkino</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D2-4</b> (davimas iš gausos) — labai gerai jungiasi ir <b>atsveria D2-4 riziką</b>, nes parodo, kaip davimas atrodo praktiškai.</li>
+    <li>Rosenberg: pagyrimai yra <b>vertinimai</b> — jais negalima pasinaudoti. Padėka sakoma <b>tam, kad švęstume, o ne kad ką nors išgautume.</b></li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ B-8</span></p>
+</section>
+
+<section class="card bank" id="B-8" data-sec="bank">
+  <header><span class="code">B-8</span><span class="meta">Bankas · buvo R2-13</span></header>
+  <h2>Vieną kartą, ne tūkstantį</h2>
+  <div class="board"><span class="board-label">Ant lentos</span><pre>Meilės take: už klaidą sumoki VIENĄ kartą.
+Baimės take: už tą pačią — TŪKSTANTĮ.
+                                    Ruiz</pre></div>
+  <ul>
+    <li><b>Kur tiktų:</b> prie <b>D2-8</b> (klaida — ne nuosprendis). Labai gerai jungiasi.</li>
+    <li>Tai mintis apie <b>iniciatyvą</b>: jei klystelėjimas primenamas trejus metus, racionaliausia nedaryti nieko naujo.</li>
+    <li><b>Atleidimo testas:</b> išgirsti vardą ir nieko nejauti. Randas lieka — nebeskauda.</li>
+  </ul>
+  <p class="next"><span>Atsarginė</span><span>▸ C-1</span></p>
+</section>
+
+<!-- ═══════════════ CITATOS ═══════════════ -->
+
+<section class="card cit" id="C-1" data-sec="cit">
+  <header><span class="code">C-1</span><span class="meta">Citata · D1-7 · Rosenberg ★</span></header>
+  <p class="quote">„Tai, ką kiti sako ir daro, gali būti mūsų jausmų dirgiklis, bet niekada — jų priežastis."</p>
+  <p class="src">Marshall B. Rosenberg, <i>Nesmurtinis bendravimas</i>, 5 sk.</p>
+  <p class="quote" style="margin-top:8px">„Mūsų jausmai kyla iš to, kaip <u>pasirenkame</u> priimti tai, ką kiti sako ir daro, ir iš mūsų poreikių bei lūkesčių tą akimirką."</p>
+  <p class="src">Rosenberg, 5 sk.</p>
+  <p class="next"><span>Svarbiausia dienos citata</span><span>▸ C-2</span></p>
+</section>
+
+<section class="card cit" id="C-2" data-sec="cit">
+  <header><span class="code">C-2</span><span class="meta">Citata · D1-15 · prašymas/reikalavimas</span></header>
+  <p class="quote">„Norint suprasti, ar tai reikalavimas, ar prašymas, stebėk, ką kalbantysis daro, kai jo prašymas neįvykdomas."</p>
+  <p class="src">Rosenberg, 6 sk.</p>
+  <p class="quote" style="margin-top:8px">„Kai žmogus išgirsta reikalavimą, jis mato tik du kelius: paklusti arba maištauti."</p>
+  <p class="src">Rosenberg, 6 sk.</p>
+  <p class="next"><span>Naudoti: D1-15, P5</span><span>▸ C-3</span></p>
+</section>
+
+<section class="card cit" id="C-3" data-sec="cit">
+  <header><span class="code">C-3</span><span class="meta">Istorija · D1-17 · „bas"</span></header>
+  <h2>Grupė, kuri kalbėjo 20 minučių</h2>
+  <ul>
+    <li>Rosenbergą pakvietė stebėti grupę, kurios susitikimai buvo <b>varginantys ir bevaisiai</b>. Žmonės iš jos <b>traukėsi</b>.</li>
+    <li>Vienas vyras pradėjo <b>pasakodamas straipsnį</b>. Moteris pridėjo savo patirtį. Paskui — dar vienas.</li>
+    <li>Po <b>dvidešimties minučių</b> Rosenbergas paklausė, ar kieno nors poreikiai patenkinti. <b>Nė vieno.</b></li>
+    <li>Tada paklausė pirmojo: <i>„Kokio atsakymo iš grupės jūs norėjote?"</i> — <b>„Nesu tikras, ko norėjau."</b></li>
+  </ul>
+  <p class="next"><span>Naudoti: D1-17</span><span>▸ C-4</span></p>
+</section>
+
+<section class="card cit" id="C-4" data-sec="cit">
+  <header><span class="code">C-4</span><span class="meta">Istorija · B-3 · „privalau"</span></header>
+  <h2>Klinikinės ataskaitos</h2>
+  <ul>
+    <li>Rosenbergas sudarė sąrašą dalykų, kuriuos darė <b>„nes privalo"</b>. Pamatęs, koks jis ilgas, suprato, kodėl tiek laiko praleidžia <b>nesimėgaudamas gyvenimu</b>.</li>
+    <li><b>Pirmas punktas:</b> „rašyti klinikines ataskaitas" — <b>valanda kančios kasdien</b>. Priėjęs „…nes noriu", suprato: <b>tik dėl pinigų</b>. → <b>Daugiau neparašė nė vienos.</b> Prabėgo 35 metai.</li>
+    <li><b>Antras punktas:</b> „vežti vaikus į mokyklą" — ta mokykla atitiko jo vertybes. → <b>Vežė toliau, bet kita energija.</b></li>
+  </ul>
+  <p class="next"><span>Naudoti: B-3, P14</span><span>▸ C-5</span></p>
+</section>
+
+<section class="card cit" id="C-5" data-sec="cit">
+  <header><span class="code">C-5</span><span class="meta">Citata · D2-2, D2-6 · Ruiz ★</span></header>
+  <p class="quote">„Jei man tavęs gaila, vadinasi, aš tavęs negerbiu. Aš netikiu, kad tu pats gali."</p>
+  <p class="src">Don Miguel Ruiz, <i>Meilės meistrystė</i>, 4 sk.</p>
+  <p class="quote" style="margin-top:8px">„Meilė yra negailestinga: ji niekam nesigaili — bet turi užuojautos. Aš myliu tave: aš žinau, kad tu gali. Jei parkrisi — paduosiu ranką. Galiu pasakyti: tu gali, eik."</p>
+  <p class="src">Ruiz, 4 sk.</p>
+  <p class="next"><span>Naudoti: D1-11, D2-5</span><span>▸ C-6</span></p>
+</section>
+
+<section class="card cit" id="C-6" data-sec="cit">
+  <header><span class="code">C-6</span><span class="meta">Citata · D2-3, B-8 · Ruiz</span></header>
+  <p class="quote">„Meilės take yra teisingumas: jei suklysti, sumoki už tai vieną kartą — ir jei tikrai save myli, iš tos klaidos pasimokai. Baimės take teisingumo nėra: už tą pačią klaidą verti save mokėti tūkstantį kartų."</p>
+  <p class="src">Ruiz, 4 sk.</p>
+  <p class="quote" style="margin-top:8px">„Žinosi, kad atleidai, kai pamatysi tą žmogų ir nebejausi nieko. Kai gali paliesti žaizdą ir neskauda. Randas lieka, bet nebeskauda."</p>
+  <p class="src">Ruiz, 11 sk.</p>
+  <p class="next"><span>Naudoti: D2-3, B-8</span><span>▸ C-7</span></p>
+</section>
+
+<section class="card cit" id="C-7" data-sec="cit">
+  <header><span class="code">C-7</span><span class="meta">Citata · B-4 · komandiškumas</span></header>
+  <p class="quote">„Gimėme dirbti kartu — kaip rankos ar akių vokai. Bendrystė yra mūsų sukūrimo tikslas."</p>
+  <p class="src">Markas Aurelijus, <i>Meditacijos</i> · per Irvine, 9 sk.</p>
+  <p class="quote" style="margin-top:8px">„Žmogaus prigimtis labai panaši į bitės: bitė negali gyventi viena — izoliuota ji žūva."</p>
+  <p class="src">Musonijus Rufas · per Irvine, 9 sk.</p>
+  <p class="next"><span>Naudoti: B-4, uždarymas</span><span>▸ C-8</span></p>
+</section>
+
+<section class="card cit" id="C-8" data-sec="cit">
+  <header><span class="code">C-8</span><span class="meta">Citata · B-6 · erzinantys žmonės</span></header>
+  <p class="quote">„Šiandien sutiksiu įkyrių, nedėkingų, įžūlių, neištikimų ir savanaudiškų žmonių."</p>
+  <p class="src">Marko Aurelijaus rytinė repeticija · per Irvine, 10 sk.</p>
+  <p class="quote" style="margin-top:8px">„Tikėtis, kad žmonės nebus erzinantys, yra tas pats, kas tikėtis, kad figmedis neduos sulčių."</p>
+  <p class="quote" style="margin-top:8px">„Geriausias kerštas — nebūti tokiam kaip jis."</p>
+  <p class="src">Markas Aurelijus · per Irvine, 10 sk.</p>
+  <p class="next"><span>Naudoti: B-6, D1-9</span><span>▸ C-9</span></p>
+</section>
+
+<section class="card cit" id="C-9" data-sec="cit">
+  <header><span class="code">C-9</span><span class="meta">Citata · B-5 · pyktis</span></header>
+  <p class="quote">„Mūsų pyktis visada trunka ilgiau nei mums padaryta žala."</p>
+  <p class="src">Seneka, <i>Apie pyktį</i> · per Irvine, 13 sk.</p>
+  <p class="quote" style="margin-top:8px">„Supykus reikia visus pykčio požymius apversti į priešingus: atpalaiduoti veidą, patylinti balsą, sulėtinti žingsnį. Tada vidinė būsena prisitaikys prie išorinės."</p>
+  <p class="src">Seneka · per Irvine, 13 sk.</p>
+  <p class="quote" style="margin-top:8px">„Kartais žmogus, ant kurio pykstame, mums iš tikrųjų padėjo. Erzina tik tai, kad padėjo mažiau, nei tikėjomės."</p>
+  <p class="src">Seneka</p>
+  <p class="next"><span>Naudoti: B-5, B-6, P23</span><span>▸ C-10</span></p>
+</section>
+
+<section class="card cit" id="C-10" data-sec="cit">
+  <header><span class="code">C-10</span><span class="meta">Citata · įžeidimai</span></header>
+  <p class="quote">„Įžeidžia ne tas, kuris tave užgaulioja ar smogia, o tavo paties sprendimas, kad tai įžeidu."</p>
+  <p class="src">Epiktetas · per Irvine, 11 sk.</p>
+  <p class="quote" style="margin-top:8px">„Žmones trikdo ne patys dalykai, o jų sprendimai apie tuos dalykus."</p>
+  <p class="src">Epiktetas</p>
+  <p class="quote" style="margin-top:8px">„Kodėl įžeidimas yra tai, kas akivaizdu?"</p>
+  <p class="src">Seneka — apie pašaipą dėl to, kas yra tiesa</p>
+  <p class="next"><span>Naudoti: D1-9</span><span>▸ C-11</span></p>
+</section>
+
+<section class="card cit" id="C-11" data-sec="cit">
+  <header><span class="code">C-11</span><span class="meta">Istorija · humoras vietoj atkirčio</span></header>
+  <h2>Katonas ir Sokratas</h2>
+  <ul>
+    <li><b>Katonas.</b> Gynė bylą, kai priešininkas <b>Lentulas spjovė jam į veidą</b>. Katonas ramiai nusišluostė: <i>„Prisieksiu bet kam, Lentulai, kad žmonės klysta sakydami, jog tu nemoki naudotis burna."</i></li>
+    <li><b>Sokratas.</b> Kažkas be įspėjimo trenkė jam per ausis. Sokratas pajuokavo, <b>kokia nesąmonė, kad išeinant iš namų niekada negali žinoti, ar dėtis šalmą</b>.</li>
+    <li><b>Katonas pirtyje.</b> Kai sumušęs žmogus atsiprašinėjo: <i>„Aš neprisimenu, kad man būtų smogta."</i></li>
+  </ul>
+  <p class="src">Per Senecą, cituoja Irvine, 11 sk.</p>
+  <p class="next"><span>Naudoti: D1-9</span><span>▸ C-12</span></p>
+</section>
+
+<section class="card cit" id="C-12" data-sec="cit">
+  <header><span class="code">C-12</span><span class="meta">Citata · D2-4, B-7 · padėka</span></header>
+  <p class="quote">„Padėką sakome tam, kad švęstume, o ne tam, kad ką nors iš žmogaus išgautume."</p>
+  <p class="src">Rosenberg, 14 sk.</p>
+  <p class="quote" style="margin-top:8px">„Per visą gyvenimą mane vadino daugybe vardų, bet neprisimenu, kad būčiau ko nors rimtai išmokęs iš to, kuo mane pavadino."</p>
+  <p class="src">Rosenberg — atsakydamas į „tu genialus", 14 sk.</p>
+  <p class="next"><span>Naudoti: B-7, P13</span><span>▸ C-13</span></p>
+</section>
+
+<section class="card cit" id="C-13" data-sec="cit">
+  <header><span class="code">C-13</span><span class="meta">Citata · D2-12 · Emerald</span></header>
+  <p class="quote">„Nėra tokio dalyko kaip iššvaistytas mažas žingsnis. Kiekvienas žingsnis arba priartina prie to, ką ketini sukurti, arba nutolina — ir abu duoda neįkainojamos informacijos."</p>
+  <p class="src">David Emerald, <i>The Power of TED*</i>, 7 sk.</p>
+  <p class="quote" style="margin-top:8px">„Kūrėjas mato kitus kaip kūrėjus — nesvarbu, ar jie tai žino, ir nesvarbu, ar taip elgiasi."</p>
+  <p class="src">Emerald, 8 sk.</p>
+  <p class="quote" style="margin-top:8px">„Greičiausias būdas, kad kas nors pamatytų tave kaip Persekiotoją — pasakyti jam, kad jis elgiasi kaip auka."</p>
+  <p class="src">Emerald, 9 sk.</p>
+  <p class="next"><span>Naudoti: D1-0b, D2-12</span><span>▸ C-14</span></p>
+</section>
+
+<section class="card cit" id="C-14" data-sec="cit">
+  <header><span class="code">C-14</span><span class="meta">Citata · D2-13 · kontrolė</span></header>
+  <p class="quote">„Viskas, kas mums nutinka, priklauso arba mūsų valdžiai, arba ne. Trečio varianto nėra."</p>
+  <p class="src">Epiktetas — kontrolės dichotomija</p>
+  <p class="quote" style="margin-top:8px">„Kas nulemia tavo likimą — ne kortos, kurias gavai, o tai, kaip jomis žaidi. O žaisti reiškia matyti tikrovę tokią, kokia ji yra, ir pagal tai veikti."</p>
+  <p class="src">per Emerald, 7 sk.</p>
+  <p class="next"><span>Naudoti: D2-13, D2-17</span><span>▸ C-15</span></p>
+</section>
+
+<section class="card cit" id="C-15" data-sec="cit">
+  <header><span class="code">C-15</span><span class="meta">Citata · D2-7 · nesėkmė</span></header>
+  <p class="quote">„Drąsa nėra tuomet, kai turime aiškų matymą — tai gebėjimas judėti pirmyn, kai viskas neaišku."</p>
+  <p class="src">Iš pirminio dokumento, §7</p>
+  <p class="quote" style="margin-top:8px">„Imantis nežinomybės, mūsų nelaukia pasirinkimas tarp 'pavyks' ir 'nepavyks' — mūsų laukia pasirinkimas tarp 'pavyks' ir 'pasimokysiu'."</p>
+  <p class="src">Iš pirminio dokumento, §7</p>
+  <p class="next"><span>Naudoti: D2-7, D2-10</span><span>▸ C-16</span></p>
+</section>
+
+<section class="card cit" id="C-16" data-sec="cit">
+  <header><span class="code">C-16</span><span class="meta">Citata · atsarginė · Frankl</span></header>
+  <p class="quote">„Viską iš žmogaus galima atimti, išskyrus vieną dalyką — paskutinę žmogaus laisvę: pasirinkti savo požiūrį bet kokiomis aplinkybėmis, pasirinkti savo kelią."</p>
+  <p class="src">Viktor Frankl · cituojamas Emerald, 9 sk.</p>
+  <div class="team mid"><b class="lbl">Komandoje</b>Ši citata yra <b>saugi D2-15 alternatyva</b>: pasako tą patį apie pasirinkimo laisvę, bet be kaltinimo natos. Jei nusprendei nenaudoti Nietzsche's eilutės — naudok šitą.</div>
+  <p class="next"><span>Atsarginė</span><span>Pabaiga</span></p>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement, body = document.body;
+  function group(sel, fn){
+    var btns = document.querySelectorAll(sel);
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        btns.forEach(function(x){ x.classList.remove('on'); });
+        b.classList.add('on'); fn(b);
+      });
+    });
+  }
+  group('#ui button[data-w]', function(b){
+    root.style.setProperty('--card-w', b.dataset.w);
+    root.style.setProperty('--card-h', b.dataset.h);
+  });
+  group('#ui button[data-font]', function(b){
+    root.style.setProperty('--font', b.dataset.font);
+  });
+  var scale = 1;
+  function rescale(d){
+    scale = Math.min(1.5, Math.max(0.7, scale + d));
+    [['--fs-title',14],['--fs-teze',12.5],['--fs-body',10],['--fs-board',8.5],
+     ['--fs-code',9],['--fs-meta',8],['--fs-next',7.5]]
+      .forEach(function(p){ root.style.setProperty(p[0], (p[1]*scale).toFixed(2)+'pt'); });
+  }
+  document.getElementById('fplus').addEventListener('click', function(){ rescale(0.05); });
+  document.getElementById('fminus').addEventListener('click', function(){ rescale(-0.05); });
+
+  document.querySelectorAll('#ui input[data-sec]').forEach(function(cb){
+    cb.addEventListener('change', function(){
+      var map = { theory:'hide-theory', ex:'hide-ex', ref:'hide-ref',
+                  cit:'hide-cit', adm:'hide-adm', bank:'hide-bank' };
+      body.classList.toggle(map[cb.dataset.sec], !cb.checked);
+    });
+  });
+
+  function toggleFlag(btnId, cls, other, otherBtn){
+    document.getElementById(btnId).addEventListener('click', function(){
+      var on = body.classList.toggle(cls);
+      this.classList.toggle('on', on);
+      if(on){ body.classList.remove(other); document.getElementById(otherBtn).classList.remove('on'); }
+    });
+  }
+  toggleFlag('btnRestored','only-restored','only-risk','btnRisk');
+  toggleFlag('btnRisk','only-risk','only-restored','btnRestored');
+})();
+</script>
+</body>
+</html>
