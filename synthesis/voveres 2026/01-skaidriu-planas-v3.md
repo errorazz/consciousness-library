@@ -82,10 +82,35 @@ ką su tuo darau.
 ```
 
 - **SAKYTI:** Užrašai sakinį. Perskaitai garsiai. **Padarai 3 sekundžių pauzę.** Ir tik tada pasakai, kas esi ir kodėl čia stovi. Neprisistatyk pirma — pirma turi nuskambėti sakinys.
+  **Šitą lentą rašyk ranka — nespausdink.** Pats rašymas čia yra ritualas; atspausdintas sakinys virsta plakatu ir pirmos 60 sekundžių dingsta.
 
-- **SAKYTI (kodėl tu):** Trumpai ir sąžiningai — viena tikra istorija, kodėl ši tema tau asmeniškai svarbi. Ne CV, ne regalijos. Žmonės per pirmas 60 sekundžių nusprendžia, ar tu kalbi iš patirties, ar iš konspekto.
+- **SAKYTI (kodėl tu — apie 60 sek.; tekstas nusistovėjęs):**
+  > „Prieš kelerius metus konsultacijoje skundžiausi psichologei, kad perskaičiau krūvą knygų apie žmones, o vis tiek nesuprantu, kodėl aplink mane niekas nesikeičia — tos pačios situacijos, tie patys pokalbiai, ir viskas lieka kaip buvę." ***(pauzė)***
+  >
+  > „Ji manęs netaisė. Pasakė tik tiek, kad pati stengiasi žiūrėti per dėkingumą, ir pasiūlė pasidomėti Karpmano trikampiu."
+  >
+  > „Perskaičiau — ir ten atpažinau ne kitus žmones. Atpažinau save. Nes mano įprastas sakinys buvo: *„kodėl jiems taip pasisekė, o man…"*" ***(pauzė)***
+  >
+  > „Man nepatiko, kad tai — mano sakinys."
+  >
+  > „Nuo tada treniruojuosi. Mokausi save stebėti — atkreipti dėmesį į situaciją, o kai suklystu, grįžti ir ramiai apsvarstyti, kurioje vietoje aš toje situacijoje stovėjau. **Ką tos vietos reiškia — netrukus parodysiu.**"
 
-- **SAKYTI (rėmas):** „Aš neatnešiau jums savo gyvenimo filosofijos. Tai skirtingų autorių, knygų ir idėjų visuma — surinkta, susisteminta ir sujungta ieškant, kaip jos viena kitą papildo. Jas jungia viena ašis: perėjimas iš Aukos į Kūrėjo poziciją. Tikslas ne pateikti vieną teisingą atsakymą, kaip gyventi, o padėti kiekvienam atrasti principus, iš kurių galima susikurti savo."
+- **VEDĖJO PASTABA (kas šitą istoriją laiko):**
+  1. Cituojamas **tikras tavo sakinys**, ne apibendrinimas. „Supratau, kad gyvenau aukos pozicijoje" skamba kaip knygos santrauka; cituota eilutė — kaip patirtis.
+  2. **Niekas kitas nėra kaltas.** Aukos pozicijoje esi tu — kitaip po trijų minučių pats sulaužysi D1-0b pirmą taisyklę.
+  3. **Pabaiga be išgijimo** — įprotis, ne jausmas. Jausmu galima tik patikėti, įprotį galima pakartoti.
+  4. **Po paskutinio sakinio nieko nepridėk.** Jokios išvados, jokio „taigi, kaip matote" — trumpa pauzė ir tiesiai į rėmo sakinį. Istorija su moralu perskaitoma kaip pamokymas; istorija, po kurios tiesiog eina darbas, perskaitoma kaip faktas apie tave.
+  - Žodis **„treniruojuosi"** čia pasakomas sąmoningai — tai **[Į4]** iš D2-9. Po pertraukos prie D2-9 galėsi pasakyti: *„šitą žodį vartojau nuo pirmos minutės."* Salė susies pati.
+  - Pabaigos formuluotė **„ką tos vietos reiškia"**, o ne „kaip vadinasi" — nes pavadinimus po kelių sekundžių pasakysi pats rėmo sakinyje. Taip pažadas lieka apie paaiškinimą, ne apie vardus.
+
+- **SAKYTI (rėmas):** „Aš neatnešiau jums savo gyvenimo filosofijos. Tai skirtingų autorių, knygų ir idėjų visuma, surinkta ieškant, kaip viena teorija papildo kitą. Idėjos — ne mano. Aš jas tik sujungiau — per vieną ašį: perėjimas iš Aukos į Kūrėjo poziciją."
+  *(Jei ištarus kliūva dvitaškis viduryje sakinio — „…per vieną ašį — perėjimą iš Aukos į Kūrėjo poziciją.")*
+
+- **SAKYTI (rėmas, tęsinys):** „Tikslas — ne pateikti vieną atsakymą, kaip gyventi, o padėti kiekvienam atrasti principus, iš kurių galima susikurti savo kelią."
+
+- **NEPRIVALOMAS SAKINYS (spręsk salėje):** „Daugumoje tų knygų šitų žodžių nerasite. Aukos ir Kūrėjo kalba ateina iš dviejų autorių — bet skaitant vieną po kitos matosi, kad jos kalba apie tą patį."
+  **Kada sakyti:** tik jei iki D1-0c kas nors pats paminėjo, kad skaito tokias knygas, arba jei salė patyrusi ir skeptiška. Kitu atveju — praleisk: terminai per pirmas 12 minučių ir taip nuskamba tris kartus (čia, D1-0b, D1-0d), o ketvirtas kartas su pagrindimu jau virsta aiškinimusi.
+  **Praleidus jis nedingsta** — natūrali antra vieta yra **D1-4**, kur pirmą kartą įvardijamas Emeraldas. Ten tas pats sakinys nebeteisina, o paaiškina šaltinį.
 
 - **SAKYTI (dienos sandara):** „Dirbsime dvi dalis. Pirmoje sudėliosime **sistemą** — kaip veikia mechanizmas tarp žmonių. Antroje kalbėsime apie tai, **ko reikia žmogui**, kad jis toje sistemoje galėtų stovėti. Tokia tvarka neatsitiktinė."
 
@@ -161,9 +186,18 @@ kuri tave suerzino.
 
 - **SAKYTI:** „Prieš eidami į detales, noriu, kad matytumėte visumą. Kairėje — trys vaidmenys, kuriuos visi mokame. Dešinėje — trys jų priešnuodžiai. Pirmoje dalyje eisime per tris žingsnius: kaip tai veikia, kaip tai veikia į vidų ir į išorę, ir kokia kalba tai pasakoma."
 
+- **SAKYTI (būtinas sakinys — be jo kortelė lūžta):** „Šešis žodžius dabar tik parodau. Ką jie reiškia — kalbėsime po eilės, ne dabar."
+  Be šito sakinio tu neišvengiamai pradėsi trumpai aiškinti, ir tada D1-1 taps pakartojimu, o D1-4 neteks atradimo — jo trys eilutės čia jau užrašytos pažodžiui.
+
 - **SAKYTI:** „Šitas piešinys liks lentoje visą dieną. Kaskart, kai pereisime prie naujo dalyko, aš parodysiu, kur mes esame."
 
 - **★ KODĖL TAI SVARBU:** Tai visos v3 struktūros esmė. Prieš kiekvieną segmentą grįžti prie žemėlapio ir **parodai pirštu, kur esame** — kainuoja 10 sekundžių. Be šito visa struktūra praranda prasmę ir tampa tiesiog kitokia skaidrių tvarka.
+
+- **PARENGIMAS — atspausdintas žemėlapis:** šitą lentą verta turėti **atspausdintą ant A3** (A4 per mažas — įskaitomumui reikia ~2,5 cm raidės aukščio kiekvieniems 3 m atstumo) ir **su laisva vieta aplink trikampius, ant kurios galima rašyti markeriu.** Tada:
+  - žemėlapis nesikeičia visą dieną ir atrodo kaip **nuoroda**, o ne kaip „dabartis";
+  - D1-1 ir D1-2 nereikia perpiešti — prirašai ir užbrėži **ant jo**;
+  - atsiranda aiškus fizinis skirtumas tarp žemėlapio (mažas, kampe, nuolatinis) ir darbo zonos (didelė, trinama).
+  *Jei renkiesi piešti ranka — piešk mažai ir kampe, o D1-1 trikampį piešk didelį darbo zonoje.*
 
 - **PERĖJIMAS:** „Pradedame nuo pirmojo langelio. 1968-ieji metai."
 
@@ -186,6 +220,8 @@ kuri tave suerzino.
  žmogus, aplinkybė,  „aš padarysiu
  sąlyga               už tave"
 ```
+
+- **JEI ŽEMĖLAPIS ATSPAUSDINTAS (D1-0d):** neperpiešk trikampio iš naujo — **rašyk markeriu ant atspausdinto žemėlapio.** Kalbėdamas apie kiekvieną vaidmenį prirašai jo eilutę prie atitinkamo kampo: prie Aukos „aš negaliu", prie Gelbėtojo „aš padarysiu už tave", prie Persekiotojo „žmogus, aplinkybė, sąlyga". Svarbu ne piešinys, o tai, kad **eilutės atsiranda kalbant, po vieną** — ranka diktuoja tempą ir salė gauna po vieną liniją.
 
 - **SAKYTI:** 1968 metais psichiatras Stephenas B. Karpmanas sukūrė Dramos trikampio modelį — žemėlapį, padedantį atpažinti, kaip konfliktų metu tarp žmonių užsimezga destruktyvi sąveika. **Tai ne diagnozė. Tai žemėlapis** — priemonė atpažinti, kur stovi.
 
@@ -211,6 +247,8 @@ kuri tave suerzino.
 ```
    AUKA ⟳ PERSEKIOTOJAS ⟳ GELBĖTOJAS ⟳
 ```
+
+- **JEI ŽEMĖLAPIS ATSPAUSDINTAS:** rodykles brėžk **ant to paties lapo**, ant kurio ką tik rašei D1-1. Būtent tai ir yra kortelės esmė — trikampis nesikeičia, **pridedamas judėjimas.** Todėl aplink trikampius spausdinant reikia palikti laisvos vietos.
 
 - **SAKYTI:** Žmogus gali nuolat keisti vaidmenis, tačiau išlieka tame pačiame trikampyje.
   - Gelbėtojas, kuriam nepadėkojo, akimirksniu tampa **Auka**: „po visko, ką aš dėl šitos komandos padariau…"
@@ -265,6 +303,11 @@ kuri tave suerzino.
   - **Kūrėjas** — prisiima atsakomybę už savo pasirinkimus ir rezultatų kūrimą.
   - **Iššūkio metėjas** — tai, kas trukdo ar priešinasi, tampa ne priežastimi jaustis bejėgiu, o galimybe mokytis, augti ir keisti veiksmus.
   - **Treneris** — vietoj gelbėjimo padeda žmogui pačiam atrasti savo sprendimus.
+
+- **NEPRIVALOMAS SAKINYS (jei nesakei jo D1-0a):** „Daugumoje šiandien minimų knygų šitų žodžių nerasite. Aukos ir Kūrėjo kalba ateina iš dviejų autorių — Karpmano ir Emeraldo — bet skaitant vieną po kitos matosi, kad jos kalba apie tą patį."
+  Čia jo natūrali vieta: Emeraldas ką tik įvardytas, tad sakinys nebeteisina, o **paaiškina šaltinį.** Kainuoja ~8 sekundes ir nuginkluoja tą žmogų salėje, kuris skaitė daugiausiai.
+
+- **VEDĖJO PASTABA:** šios kortelės trys eilutės pažodžiui sutampa su D1-0d žemėlapiu. Tai sąmoninga (turinys po turinio lentelės), bet reiškia, kad **atradimo efekto čia nebus** — laimima kitu: D1-0d buvo tik žodžiai, o čia pirmą kartą pasakoma, **ką kiekvienas jų reiškia**, ir įvardijamas autorius. Jei žemėlapis atspausdintas ir kabo kampe, šis skirtumas matomas ir fiziškai.
 
 - **PERĖJIMAS:** „Kūrėjo orientacija prasideda nuo vieno klausimo."
 
@@ -1389,6 +1432,42 @@ Jei sugedo technika, pametei siūlą arba kažkas nutiko ne pagal planą:
 | Lipdukai (60+) | Susitarimų balsavimas |
 | **Kalbėjimo daiktas** — akmuo, kamuoliukas | Ratui. **Ne mikrofonas.** |
 | **Vieta lentoje, kur žemėlapis liks visą dieną** ★ | D1-0d |
+| **Atspausdinti lapai** (žr. žemiau) + klijų juosta / blu-tack | D1-0d, D1-0b, REF-7 ir kt. |
+
+---
+
+## Ką spausdinti iš anksto
+
+Plane yra **41** „ANT LENTOS" vieta. Atspausdinus ~10 sunkiausių sutaupoma apie 8–12 minučių — maždaug vienas pratimas. Atspausdinus visas 41 diena virsta seminaru.
+
+**Principas:** nupieštas dalykas sako „tai gimsta čia, kartu su jumis"; atspausdintas sako „tai paruošta, tai atrama". Todėl:
+
+- **spausdink tai, prie ko grįžtama** — navigaciją, taisykles, tikslias citatas, lenteles, šablonus;
+- **rašyk ranka tai, kas mokoma piešiant** — kur pati ranka diktuoja tempą;
+- **visada rašyk ranka tai, kas ateina iš salės.**
+
+| Spausdinti | Kodėl |
+|---|---|
+| **D1-0d žemėlapis ★** (A3, su laisva vieta rašyti) | Kabo visą dieną, į jį rodoma 5+ kartų; ant jo rašoma per D1-1 ir D1-2 |
+| **D1-0b keturios taisyklės** | Grįžtama prie 4-osios vėliau |
+| **REF-7 susitarimų šablonas** | Tik rėmas su tuščiomis eilutėmis — turinį rašo jie |
+| **REF-7 trijų taisyklių lentelė** | Lentelė ranka = ~3 min |
+| **Ilgos citatos** — Rosenbergo pabaiga (D1-17), WD-40 (D2-10), „Drąsa nėra tuomet, kai turime aiškų matymą…" | Svarbus tikslumas, o rašyti lėta |
+| **Struktūrinės schemos** — D1-8 keturios durys, D2-11 dinaminė įtampa, D2-13 trys kontrolės kategorijos | Daug linijų, jokios pedagoginės vertės piešimo procese |
+
+| Nespausdinti | Kodėl |
+|---|---|
+| **D1-0a pradinis sakinys** | Rašymas yra ritualas: užrašai → perskaitai → 3 sek. tyla → prisistatai |
+| **D1-1 trikampis, D1-2 rodyklės** | Turi atsirasti kalbant, po vieną liniją (ant atspausdinto žemėlapio — markeriu) |
+| **Viskas, kas trumpiau nei ~5 žodžiai** | Ranka parašysi greičiau, nei surasi lapą |
+| **Viskas, kas ateina iš salės** — REF-6 jų sakiniai, susitarimų turinys, šūkis | Atspausdinti komandos susitarimai skambėtų taip, tarsi būtum juos atsivežęs |
+
+**Mechanika, nuo kurios priklauso, ar tai realiai sutaupys laiko:**
+
+- **Įskaitomumas:** ~2,5 cm raidės aukščio kiekvieniems 3 m atstumo. 9 m salėje tai ~7 cm raidės — į A4 telpa **3 eilutės, ne daugiau kaip 6 žodžiai.** Schemoms — A3. Gulsčiai, storai, juodai ant balto.
+- **Tvarka:** sunumeruok lapus kitoje pusėje (D1-0d, D1-0b…) ir laikyk **viename segtuve bėgimo tvarka.** Lapo ieškojimas viduryje dirbtuvių kainuoja daugiau, nei kainavo jį parašyti — čia sugriūva dauguma tokių planų.
+- **Zonos — nuspręsk iš anksto:** nuolatinė (žemėlapis + taisyklės, neliečiama) · darbo (trinama) · **kaupiamoji** (lapai kabinami vienas po kito). Trečioji duoda premiją: iki REF-6 visa diena matoma vienu žvilgsniu.
+- **Klijavimas:** masking tape arba blu-tack už keturių kampų; magnetinėje lentoje — magnetai. Dažytoms sienoms — ne skotčas.
 
 ---
 

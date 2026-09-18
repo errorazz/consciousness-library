@@ -167,6 +167,8 @@ Jei skaitai `01-skaidriu-planas-v2.md` ir nori rasti tą pačią kortelę v3 rin
 - [ ] **Ar salėje bus vadovas?** Jei taip — REF-5 kortelė ir susitarimas, kad rate jis kalba paskutinis
 - [ ] **Išsirinkti du pratimus** (po vieną iš D1-P ir D2-P), pasiskaityti pilną aprašymą `02` faile
 - [ ] **Atspausdinti korteles** — HTML, nuimti varneles nuo nereikalingų dalių
+- [ ] **Atspausdinti lentos lapus** — sąrašas `01-skaidriu-planas-v3.md` → „Ką spausdinti iš anksto". Svarbiausias: **D1-0d žemėlapis ant A3 su laisva vieta rašyti** (ant jo dirbsi per D1-1 ir D1-2)
+- [ ] **Pasakyti garsiai D1-0a asmeninę istoriją** — nusistovėjęs tekstas kortelėje, ~60 sek. Bent kartą prieš veidrodį su abiem pauzėmis
 - [ ] **Krepšys** pagal ADM-2
 - [ ] **Vieta lentoje**, kur žemėlapis (D1-0d) liks visą dieną
 - [ ] Jei darysi [P20] Avilys — **paruošti vardų lapelius kepurėje**
