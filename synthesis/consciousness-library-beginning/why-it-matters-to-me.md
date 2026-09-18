@@ -1,4 +1,4 @@
-#Personal story
+# Personal story
 
 Prieš kelerius metus konsultacijoje skundžiausi psichologei, kad perskaičiau krūvą knygų apie žmones, o vis tiek nesuprantu, kodėl aplink mane niekas nesikeičia — tos pačios situacijos, tie patys pokalbiai, ir viskas lieka kaip buvę. (pauzė)
 Ji manęs netaisė. Pasakė tik tiek, kad pati stengiasi žiūrėti per dėkingumą, ir pasiūlė pasidomėti Karpmano trikampiu.
