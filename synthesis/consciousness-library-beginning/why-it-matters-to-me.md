@@ -4,9 +4,14 @@ Prieš kelerius metus konsultacijoje skundžiausi psichologei, kad perskaičiau 
 Ji manęs netaisė. Pasakė tik tiek, kad pati stengiasi žiūrėti per dėkingumą, ir pasiūlė pasidomėti Karpmano trikampiu.
 Perskaičiau — ir ten atpažinau ne kitus žmones. Atpažinau save. Nes mano įprastas sakinys buvo: „kodėl jiems taip pasisekė, o man…" (pauzė)
 Man nepatiko tai, ką savyje pamačiau.
-Nuo tada treniruojuosi. Mokausi save stebėti — atkreipti dėmesį į situaciją, o kai suklystu, grįžti ir ramiai apsvarstyti, kurioje vietoje aš toje situacijoje stovėjau. Kaip tos vietos vadinasi — parodysiu ir papasakosiu netrukus (Voveres 2026).
+Nuo tada treniruojuosi. Mokausi save stebėti — atkreipti dėmesį į situaciją, o kai suklystu, grįžti ir ramiai apsvarstyti, kurioje vietoje aš toje situacijoje stovėjau. Ką tos vietos reiškia — netrukus parodysiu
 
-# Voveres 2026 versijų kelias iki 3 versijos:
+Aš neatnešiau jums savo gyvenimo filosofijos. Tai skirtingų autorių, knygų ir idėjų visuma, surinkta ieškant, kaip viena teorija papildo kitą. Idėjos — ne mano. Aš jas tik sujungiau — per vieną ašį: perėjimą iš Aukos į Kūrėjo poziciją. *Daugumoje tų knygų šitų žodžių nerasite. Aukos ir Kūrėjo kalba ateina iš dviejų autorių (Karpman ir Emerald) — bet skaitant vieną po kitos matosi, kad jos kalba apie tą patį.*
+
+Tikslas — ne pateikti vieną atsakymą, kaip gyventi, o padėti kiekvienam atrasti principus, iš kurių galima susikurti savo kelią.
+(Voverės 2026)
+
+# Voverės 2026 versijų kelias iki 3 versijos:
 
 04-temu-zemelapis.md — žemėlapis padarytas, pririštas prie konkrečių kortelių.
 Trumpas atsakymas: tavo dokumentas dalijasi pusiau savaime, nieko nekeičiant vietomis.
