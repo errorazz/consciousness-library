@@ -12,10 +12,10 @@ Nuo tada treniruojuosi. Mokausi save stebėti — atkreipti dėmesį į situacij
 Trumpas atsakymas: tavo dokumentas dalijasi pusiau savaime, nieko nekeičiant vietomis.
 
 ```
-1 dalis — Sistema ir jos kalba	  2 dalis — Kas leidžia joje stovėti
-1.1 · §1 Dvi orientacijos	        2.1 · §4+§5+§6 Santykis su savimi ir ribos
-1.2 · §2 Du požiūrio taškai	      2.2 · §7 Nebijoti klysti
-1.3 · §3 Kūrėjo kalba (NVC)	      2.3 · §8+§9 Dabartis ir kortos
+1 dalis — Sistema ir jos kalba    2 dalis — Kas leidžia joje stovėti
+1.1 · §1 Dvi orientacijos         2.1 · §4+§5+§6 Santykis su savimi ir ribos
+1.2 · §2 Du požiūrio taškai       2.2 · §7 Nebijoti klysti
+1.3 · §3 Kūrėjo kalba (NVC)       2.3 · §8+§9 Dabartis ir kortos
 ```
 
 Tai ne mano primesta tvarka — §1–§3 tavo tekste aprašo kas vyksta tarp žmonių, o nuo §4 pereini prie ko reikia žmogui, kad jis galėtų taip elgtis. Lūžis jau įrašytas dokumente. Komandos tikslui tai net tinka geriau nei v2: pirma dalis = kaip veikia sistema tarp mūsų, antra = ką kiekvienas prisiimu.
