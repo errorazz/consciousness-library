@@ -119,8 +119,18 @@ body{ margin:0; padding:0; font-family: var(--font); color: var(--ink);
 #ui .print{ background:#c9a227; color:#1b1917; border-color:#c9a227; font-weight:600; }
 #ui .hint{ opacity:.55; font-size:11px; flex-basis:100%; }
 #ui #btnScroll.on{ background:#1d5c4a; color:#fff; border-color:#1d5c4a; }
-#ui .fit{ font-size:11px; opacity:.65; white-space:nowrap; }
+#ui .grp > span.fit{ font-size:11px; opacity:.65; white-space:nowrap;
+  text-transform:none; letter-spacing:0; }
 #ui .fit.bad{ opacity:1; color:#f0a8a2; }
+
+/* Valdymo juostos suskleidimas i viena eilute (telefone ji uzimdavo puse ekrano).
+   Suskleistoje lieka tik slinkimo jungiklis, skaitiklis ir pats mygtukas. */
+#ui .uitoggle{ margin-left:auto; white-space:nowrap; }
+body.ui-collapsed #ui{ padding:6px 10px; gap:10px; }
+body.ui-collapsed #ui > *{ display:none; }
+body.ui-collapsed #ui > .grp.mini{ display:flex; }
+body.ui-collapsed #ui > .uitoggle{ display:inline-block; }
+body.ui-collapsed #ui .grp.mini > span:first-child{ display:none; }
 #ui .flagbtn.restored.on{ background:var(--badge-restored-bg); color:#fff; border-color:var(--badge-restored-bg); }
 #ui .flagbtn.risk.on{ background:var(--badge-risk-bg); color:#fff; border-color:var(--badge-risk-bg); }
 
@@ -266,7 +276,7 @@ body.only-risk     .card:not([data-flag~="risk"]){ display:none; }
 @media screen and (max-width: 720px){
   #ui{ padding:8px 10px; gap:10px; font-size:12px; }
   #ui .grp{ gap:5px; }
-  #ui .grp > span{ flex-basis:100%; margin-bottom:-2px; }
+  #ui .grp > span:not(.fit){ flex-basis:100%; margin-bottom:-2px; }
   #ui button{ font-size:12px; padding:5px 9px; }
   #ui .hint{ line-height:1.4; }
 
@@ -329,13 +339,14 @@ body.only-risk     .card:not([data-flag~="risk"]){ display:none; }
     <button class="flagbtn risk" id="btnRisk">● Su rizikos žyma (9)</button>
   </div>
 
-  <div class="grp">
+  <div class="grp mini">
     <span>Telefone</span>
     <button id="btnScroll">↕ Slinkti kortelėse</button>
     <span class="fit" id="fitInfo"></span>
   </div>
 
   <button class="print" onclick="window.print()">Spausdinti / PDF</button>
+  <button class="uitoggle" id="btnUi" type="button">▴ Slėpti</button>
   <div class="hint">Ctrl+P → Margins: <b>None</b> → ☑ Background graphics. Nuolatinius nustatymus keisk failo viršuje, <code>:root{ }</code> bloke.
   Korteles su ◥ kampu netelpa: ekrane jas perskaitysi įjunges „Slinkti kortelėse“, spausdinant likusi dalis nukerpama.</div>
 </div>
@@ -1871,6 +1882,19 @@ Baimės take: už tą pačią — TŪKSTANTĮ.
     root.style.setProperty('--font', b.dataset.font);
     remeasure();
   });
+
+  /* --- valdymo juostos suskleidimas; telefone suskleista is karto --- */
+  var btnUi = document.getElementById('btnUi');
+  function setUi(collapsed){
+    body.classList.toggle('ui-collapsed', collapsed);
+    btnUi.textContent = collapsed ? '▾ Meniu' : '▴ Slėpti';
+    btnUi.title = collapsed ? 'Išskleisti valdymo juostą'
+                            : 'Suskleisti valdymo juostą iki vienos eilutės';
+  }
+  btnUi.addEventListener('click', function(){
+    setUi(!body.classList.contains('ui-collapsed'));
+  });
+  setUi(window.innerWidth <= 720);
 
   document.getElementById('btnScroll').addEventListener('click', function(){
     this.classList.toggle('on', body.classList.toggle('scrollmode'));
